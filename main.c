@@ -1,5 +1,14 @@
 #include <stdio.h>
 #include <string.h>
+#include <pthread.h>
+#include <stdlib.h>
+
+struct buscaTLB {
+    int pagina;
+    int entrada;
+    int encontrou;
+};
+
 
 #define PAGE_SIZE 256
 #define NUM_PAGINAS 256
@@ -108,10 +117,49 @@ int escolherVitimaTLB(void) {
     return vitima;
 }
 
+void *verificarEntradaTLB(void *arg) {
+
+    struct buscaTLB *busca = arg;
+
+    busca->encontrou = paginasTLB[busca->entrada] == busca->pagina;
+
+    return NULL;
+}
+
 int buscarTLB(int pagina) {
 
+    pthread_t threads[TLB_SIZE];
+    struct buscaTLB buscas[TLB_SIZE];
+
+    int criadas = 0;
+
     for (int i = 0; i < TLB_SIZE; i++) {
-        if (paginasTLB[i] == pagina) {
+
+        buscas[i].pagina = pagina;
+        buscas[i].entrada = i;
+        buscas[i].encontrou = 0;
+
+        if (pthread_create(&threads[i], NULL, verificarEntradaTLB, &buscas[i]) != 0) {
+            break;
+        }
+
+        criadas++;
+    }
+
+    for (int i = 0; i < criadas; i++) {
+        if (pthread_join(threads[i], NULL) != 0) {
+            fprintf(stderr, "Erro ao aguardar thread\n");
+            remove("correct.txt.tmp");
+            exit(1);
+        }
+    }
+
+    if (criadas != TLB_SIZE) {
+        return -2;
+    }
+
+    for (int i = 0; i < TLB_SIZE; i++) {
+        if (buscas[i].encontrou == 1) {
             return i;
         }
     }
@@ -204,6 +252,15 @@ int main(int argc, char *argv[]) {
 
         int entradaTLB = buscarTLB(pagina);
         int frame;
+
+        if (entradaTLB == -2) {
+            fprintf(stderr, "Erro ao criar threads\n");
+            fclose(arquivo);
+            fclose(disco);
+            fclose(saida);
+            remove("correct.txt.tmp");
+            return 1;
+        }
 
         if (entradaTLB != -1) {
 
