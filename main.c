@@ -69,6 +69,7 @@ int main(int argc, char *argv[]) {
     int endereco;
     int final;
     int quantidade = 0;
+    int pageFaults = 0;
 
 
     criarTabela();
@@ -84,8 +85,27 @@ int main(int argc, char *argv[]) {
         int pagina = getPaginaAtual(endereco);
         int offset = getOffsetAtual(endereco);
 
-        printf("Address: %d Page: %d Offset: %d\n",
-               endereco, pagina, offset);
+        if (tabelaPaginas[pagina] == -1) {
+
+            int resultado = carregarPagina(disco, pagina, proximoFrame);
+
+            if (resultado != 0) {
+                fprintf(stderr, "Erro ao carregar pagina\n");
+                fclose(arquivo);
+                fclose(disco);
+                return 1;
+            }
+
+            proximoFrame++;
+            pageFaults++;
+        }
+
+        int frame = tabelaPaginas[pagina];
+        int enderecoFisico = frame * PAGE_SIZE + offset;
+        int valor = memoriaFisica[frame][offset];
+
+        printf("Virtual address: %d Physical address: %d Value: %d\n",
+            endereco, enderecoFisico, valor);
 
         quantidade++;
     }
@@ -97,6 +117,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    printf("Page Faults = %d\n", pageFaults);
     fclose(arquivo);
     fclose(disco);
 
