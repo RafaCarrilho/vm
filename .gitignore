@@ -1,0 +1,5 @@
+vm
+*.o
+testes/oficiais/
+correct.txt
+teste
