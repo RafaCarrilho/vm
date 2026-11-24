@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #define PAGE_SIZE 256
 #define NUM_PAGINAS 256
@@ -6,6 +7,7 @@
 
 int tabelaPaginas[NUM_PAGINAS];
 int tabelaFrames[NUM_FRAMES];
+int ultimoAcesso[NUM_FRAMES];
 signed char memoriaFisica[NUM_FRAMES][PAGE_SIZE];
 
 int proximoFrame = 0;
@@ -25,6 +27,7 @@ void criarTabela(void) {
 
     for (int i = 0; i < NUM_FRAMES; i++) {
         tabelaFrames[i] = -1;
+        ultimoAcesso[i] = -1;
     }
 }
 
@@ -56,10 +59,28 @@ int carregarPagina(FILE *disco, int pagina, int frame) {
     return 0;
 }
 
+int escolherVitimaLRU(void) {
+
+    int vitima = 0;
+
+    for (int i = 1; i < NUM_FRAMES; i++) {
+        if (ultimoAcesso[i] < ultimoAcesso[vitima]) {
+            vitima = i;
+        }
+    }
+
+    return vitima;
+}
+
 int main(int argc, char *argv[]) {
 
-    if (argc != 2) {
-        fprintf(stderr, "Informe o arquivo de enderecos\n");
+    if (argc != 3) {
+        fprintf(stderr, "Informe o arquivo de enderecos e o algoritmo\n");
+        return 1;
+    }
+
+    if (strcmp(argv[2], "fifo") != 0 && strcmp(argv[2], "lru") != 0) {
+        fprintf(stderr, "Algoritmo invalido\n");
         return 1;
     }
 
@@ -99,7 +120,13 @@ int main(int argc, char *argv[]) {
 
         if (tabelaPaginas[pagina] == -1) {
 
-            int resultado = carregarPagina(disco, pagina, proximoFrame);
+            int frameEscolhido = proximoFrame;
+
+            if (pageFaults >= NUM_FRAMES && strcmp(argv[2], "lru") == 0) {
+                frameEscolhido = escolherVitimaLRU();
+            }
+
+            int resultado = carregarPagina(disco, pagina, frameEscolhido);
 
             if (resultado != 0) {
                 fprintf(stderr, "Erro ao carregar pagina\n");
@@ -117,6 +144,7 @@ int main(int argc, char *argv[]) {
         }
 
         int frame = tabelaPaginas[pagina];
+        ultimoAcesso[frame] = quantidade;
         int enderecoFisico = frame * PAGE_SIZE + offset;
         int valor = memoriaFisica[frame][offset];
 
