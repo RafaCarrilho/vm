@@ -12,6 +12,7 @@ int ultimoAcesso[NUM_FRAMES];
 signed char memoriaFisica[NUM_FRAMES][PAGE_SIZE];
 int paginasTLB[TLB_SIZE];
 int framesTLB[TLB_SIZE];
+int ultimoAcessoTLB[TLB_SIZE];
 
 
 int proximaEntradaTLB = 0;
@@ -38,6 +39,7 @@ void criarTabela(void) {
     for (int i = 0; i < TLB_SIZE; i++) {
         paginasTLB[i] = -1;
         framesTLB[i] = -1;
+        ultimoAcessoTLB[i] = -1;
     }
 }
 
@@ -89,6 +91,23 @@ int escolherVitimaLRU(void) {
     return vitima;
 }
 
+int escolherVitimaTLB(void) {
+
+    int vitima = 0;
+
+    for (int i = 0; i < TLB_SIZE; i++) {
+        if (paginasTLB[i] == -1) {
+            return i;
+        }
+
+        if (ultimoAcessoTLB[i] < ultimoAcessoTLB[vitima]) {
+            vitima = i;
+        }
+    }
+
+    return vitima;
+}
+
 int buscarTLB(int pagina) {
 
     for (int i = 0; i < TLB_SIZE; i++) {
@@ -100,18 +119,22 @@ int buscarTLB(int pagina) {
     return -1;
 }
 
-int inserirTLB(int pagina, int frame) {
+int inserirTLB(int pagina, int frame, char *algoritmo) {
 
     int entrada = proximaEntradaTLB;
 
+    if (strcmp(algoritmo, "lru") == 0) {
+        entrada = escolherVitimaTLB();
+    } else {
+        proximaEntradaTLB++;
+
+        if (proximaEntradaTLB == TLB_SIZE) {
+            proximaEntradaTLB = 0;
+        }
+    }
+
     paginasTLB[entrada] = pagina;
     framesTLB[entrada] = frame;
-
-    proximaEntradaTLB++;
-
-    if (proximaEntradaTLB == TLB_SIZE) {
-        proximaEntradaTLB = 0;
-    }
 
     return entrada;
 }
@@ -128,7 +151,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if (strcmp(argv[3], "fifo") != 0) {
+    if (strcmp(argv[3], "fifo") != 0 && strcmp(argv[3], "lru") != 0) {
         fprintf(stderr, "Algoritmo da TLB invalido\n");
         return 1;
     }
@@ -217,9 +240,10 @@ int main(int argc, char *argv[]) {
             }
 
             frame = tabelaPaginas[pagina];
-            entradaTLB = inserirTLB(pagina, frame);
+            entradaTLB = inserirTLB(pagina, frame, argv[3]);
         }
 
+        ultimoAcessoTLB[entradaTLB] = quantidade;
         ultimoAcesso[frame] = quantidade;
         int enderecoFisico = frame * PAGE_SIZE + offset;
         int valor = memoriaFisica[frame][offset];
