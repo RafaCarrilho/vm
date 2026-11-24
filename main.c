@@ -60,15 +60,15 @@ int carregarPagina(FILE *disco, int pagina, int frame) {
     int paginaAntiga = tabelaFrames[frame];
 
     if (paginaAntiga != -1) {
-    tabelaPaginas[paginaAntiga] = -1;
+        tabelaPaginas[paginaAntiga] = -1;
 
-    for (int i = 0; i < TLB_SIZE; i++) {
-        if (paginasTLB[i] == paginaAntiga) {
-            paginasTLB[i] = -1;
-            framesTLB[i] = -1;
+        for (int i = 0; i < TLB_SIZE; i++) {
+            if (paginasTLB[i] == paginaAntiga) {
+                paginasTLB[i] = -1;
+                framesTLB[i] = -1;
+            }
         }
     }
-}
 
     tabelaPaginas[pagina] = frame;
     tabelaFrames[frame] = pagina;
@@ -148,6 +148,15 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    FILE *saida = fopen("correct.txt.tmp", "w");
+
+    if (saida == NULL) {
+        fprintf(stderr, "Erro ao criar arquivo de saida\n");
+        fclose(arquivo);
+        fclose(disco);
+        return 1;
+    }
+
     int endereco;
     int final;
     int quantidade = 0;
@@ -162,6 +171,8 @@ int main(int argc, char *argv[]) {
             fprintf(stderr, "Endereco invalido\n");
             fclose(arquivo);
             fclose(disco);
+            fclose(saida);
+            remove("correct.txt.tmp");
             return 1;
         }
 
@@ -192,6 +203,8 @@ int main(int argc, char *argv[]) {
                     fprintf(stderr, "Erro ao carregar pagina\n");
                     fclose(arquivo);
                     fclose(disco);
+                    fclose(saida);
+                    remove("correct.txt.tmp");
                     return 1;
                 }
 
@@ -211,7 +224,7 @@ int main(int argc, char *argv[]) {
         int enderecoFisico = frame * PAGE_SIZE + offset;
         int valor = memoriaFisica[frame][offset];
 
-        printf("Virtual address: %d TLB: %d Physical address: %d Value: %d\n",
+        fprintf(saida, "Virtual address: %d TLB: %d Physical address: %d Value: %d\n",
             endereco, entradaTLB, enderecoFisico, valor);
 
         quantidade++;
@@ -221,13 +234,40 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Arquivo invalido\n");
         fclose(arquivo);
         fclose(disco);
+        fclose(saida);
+        remove("correct.txt.tmp");
         return 1;
     }
 
-    printf("Page Faults = %d\n", pageFaults);
-    printf("TLB Hits = %d\n", tlbHits);
+    double pageFaultRate = (double) pageFaults / quantidade;
+    double tlbHitRate = (double) tlbHits / quantidade;
+
+    fprintf(saida, "Number of Translated Addresses = %d\n", quantidade);
+    fprintf(saida, "Page Faults = %d\n", pageFaults);
+    fprintf(saida, "Page Fault Rate = %.3f\n", pageFaultRate);
+    fprintf(saida, "TLB Hits = %d\n", tlbHits);
+    fprintf(saida, "TLB Hit Rate = %.3f\n", tlbHitRate);
+
     fclose(arquivo);
     fclose(disco);
+
+    int erroSaida = ferror(saida);
+
+    if (fclose(saida) != 0) {
+        erroSaida = 1;
+    }
+
+    if (erroSaida != 0) {
+        fprintf(stderr, "Erro ao escrever arquivo\n");
+        remove("correct.txt.tmp");
+        return 1;
+    }
+
+    if (rename("correct.txt.tmp", "correct.txt") != 0) {
+        fprintf(stderr, "Erro ao renomear arquivo\n");
+        remove("correct.txt.tmp");
+        return 1;
+    }
 
     return 0;
 }
