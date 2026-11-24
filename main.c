@@ -4,11 +4,17 @@
 #define PAGE_SIZE 256
 #define NUM_PAGINAS 256
 #define NUM_FRAMES 128
+#define TLB_SIZE 16
 
 int tabelaPaginas[NUM_PAGINAS];
 int tabelaFrames[NUM_FRAMES];
 int ultimoAcesso[NUM_FRAMES];
 signed char memoriaFisica[NUM_FRAMES][PAGE_SIZE];
+int paginasTLB[TLB_SIZE];
+int framesTLB[TLB_SIZE];
+
+
+int proximaEntradaTLB = 0;
 
 int proximoFrame = 0;
 
@@ -28,6 +34,10 @@ void criarTabela(void) {
     for (int i = 0; i < NUM_FRAMES; i++) {
         tabelaFrames[i] = -1;
         ultimoAcesso[i] = -1;
+    }
+    for (int i = 0; i < TLB_SIZE; i++) {
+        paginasTLB[i] = -1;
+        framesTLB[i] = -1;
     }
 }
 
@@ -50,8 +60,15 @@ int carregarPagina(FILE *disco, int pagina, int frame) {
     int paginaAntiga = tabelaFrames[frame];
 
     if (paginaAntiga != -1) {
-        tabelaPaginas[paginaAntiga] = -1;
+    tabelaPaginas[paginaAntiga] = -1;
+
+    for (int i = 0; i < TLB_SIZE; i++) {
+        if (paginasTLB[i] == paginaAntiga) {
+            paginasTLB[i] = -1;
+            framesTLB[i] = -1;
+        }
     }
+}
 
     tabelaPaginas[pagina] = frame;
     tabelaFrames[frame] = pagina;
@@ -72,15 +89,47 @@ int escolherVitimaLRU(void) {
     return vitima;
 }
 
+int buscarTLB(int pagina) {
+
+    for (int i = 0; i < TLB_SIZE; i++) {
+        if (paginasTLB[i] == pagina) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+int inserirTLB(int pagina, int frame) {
+
+    int entrada = proximaEntradaTLB;
+
+    paginasTLB[entrada] = pagina;
+    framesTLB[entrada] = frame;
+
+    proximaEntradaTLB++;
+
+    if (proximaEntradaTLB == TLB_SIZE) {
+        proximaEntradaTLB = 0;
+    }
+
+    return entrada;
+}
+
 int main(int argc, char *argv[]) {
 
-    if (argc != 3) {
+    if (argc != 4) {
         fprintf(stderr, "Informe o arquivo de enderecos e o algoritmo\n");
         return 1;
     }
 
     if (strcmp(argv[2], "fifo") != 0 && strcmp(argv[2], "lru") != 0) {
         fprintf(stderr, "Algoritmo invalido\n");
+        return 1;
+    }
+
+    if (strcmp(argv[3], "fifo") != 0) {
+        fprintf(stderr, "Algoritmo da TLB invalido\n");
         return 1;
     }
 
@@ -103,6 +152,7 @@ int main(int argc, char *argv[]) {
     int final;
     int quantidade = 0;
     int pageFaults = 0;
+    int tlbHits = 0;
 
 
     criarTabela();
@@ -118,38 +168,51 @@ int main(int argc, char *argv[]) {
         int pagina = getPaginaAtual(endereco);
         int offset = getOffsetAtual(endereco);
 
-        if (tabelaPaginas[pagina] == -1) {
+        int entradaTLB = buscarTLB(pagina);
+        int frame;
 
-            int frameEscolhido = proximoFrame;
+        if (entradaTLB != -1) {
 
-            if (pageFaults >= NUM_FRAMES && strcmp(argv[2], "lru") == 0) {
-                frameEscolhido = escolherVitimaLRU();
+            frame = framesTLB[entradaTLB];
+            tlbHits++;
+
+        } else {
+
+            if (tabelaPaginas[pagina] == -1) {
+
+                int frameEscolhido = proximoFrame;
+
+                if (pageFaults >= NUM_FRAMES && strcmp(argv[2], "lru") == 0) {
+                    frameEscolhido = escolherVitimaLRU();
+                }
+
+                int resultado = carregarPagina(disco, pagina, frameEscolhido);
+
+                if (resultado != 0) {
+                    fprintf(stderr, "Erro ao carregar pagina\n");
+                    fclose(arquivo);
+                    fclose(disco);
+                    return 1;
+                }
+
+                proximoFrame++;
+
+                if (proximoFrame == NUM_FRAMES) {
+                    proximoFrame = 0;
+                }
+                pageFaults++;
             }
 
-            int resultado = carregarPagina(disco, pagina, frameEscolhido);
-
-            if (resultado != 0) {
-                fprintf(stderr, "Erro ao carregar pagina\n");
-                fclose(arquivo);
-                fclose(disco);
-                return 1;
-            }
-
-            proximoFrame++;
-
-            if (proximoFrame == NUM_FRAMES) {
-                proximoFrame = 0;
-            }
-            pageFaults++;
+            frame = tabelaPaginas[pagina];
+            entradaTLB = inserirTLB(pagina, frame);
         }
 
-        int frame = tabelaPaginas[pagina];
         ultimoAcesso[frame] = quantidade;
         int enderecoFisico = frame * PAGE_SIZE + offset;
         int valor = memoriaFisica[frame][offset];
 
-        printf("Virtual address: %d Physical address: %d Value: %d\n",
-            endereco, enderecoFisico, valor);
+        printf("Virtual address: %d TLB: %d Physical address: %d Value: %d\n",
+            endereco, entradaTLB, enderecoFisico, valor);
 
         quantidade++;
     }
@@ -162,6 +225,7 @@ int main(int argc, char *argv[]) {
     }
 
     printf("Page Faults = %d\n", pageFaults);
+    printf("TLB Hits = %d\n", tlbHits);
     fclose(arquivo);
     fclose(disco);
 
