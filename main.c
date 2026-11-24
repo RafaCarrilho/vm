@@ -2,9 +2,10 @@
 
 #define PAGE_SIZE 256
 #define NUM_PAGINAS 256
-#define NUM_FRAMES 256
+#define NUM_FRAMES 128
 
 int tabelaPaginas[NUM_PAGINAS];
+int tabelaFrames[NUM_FRAMES];
 signed char memoriaFisica[NUM_FRAMES][PAGE_SIZE];
 
 int proximoFrame = 0;
@@ -20,6 +21,10 @@ int getOffsetAtual(int endereco) {
 void criarTabela(void) {
     for (int i = 0; i < NUM_PAGINAS; i++) {
         tabelaPaginas[i] = -1;
+    }
+
+    for (int i = 0; i < NUM_FRAMES; i++) {
+        tabelaFrames[i] = -1;
     }
 }
 
@@ -39,7 +44,14 @@ int carregarPagina(FILE *disco, int pagina, int frame) {
         return 1;
     }
 
+    int paginaAntiga = tabelaFrames[frame];
+
+    if (paginaAntiga != -1) {
+        tabelaPaginas[paginaAntiga] = -1;
+    }
+
     tabelaPaginas[pagina] = frame;
+    tabelaFrames[frame] = pagina;
 
     return 0;
 }
@@ -97,6 +109,10 @@ int main(int argc, char *argv[]) {
             }
 
             proximoFrame++;
+
+            if (proximoFrame == NUM_FRAMES) {
+                proximoFrame = 0;
+            }
             pageFaults++;
         }
 
