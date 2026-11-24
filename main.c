@@ -2,6 +2,8 @@
 #include <string.h>
 #include <pthread.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <errno.h>
 
 struct buscaTLB {
     int pagina;
@@ -34,6 +36,43 @@ int getPaginaAtual(int endereco) {
 
 int getOffsetAtual(int endereco) {
     return endereco % PAGE_SIZE;
+}
+
+int lerEndereco(FILE *arquivo, int *endereco) {
+
+    char linha[256];
+    char *fim;
+
+    if (fgets(linha, sizeof(linha), arquivo) == NULL) {
+        return EOF;
+    }
+
+    if (strchr(linha, '\n') == NULL && !feof(arquivo)) {
+        return 0;
+    }
+
+    errno = 0;
+    long valor = strtol(linha, &fim, 10);
+
+    if (fim == linha) {
+        return 0;
+    }
+
+    while (isspace((unsigned char)*fim)) {
+        fim++;
+    }
+
+    if (*fim != '\0') {
+        return 0;
+    }
+
+    if (errno == ERANGE || valor < 0 || valor > 65535) {
+        return -2;
+    }
+
+    *endereco = (int) valor;
+
+    return 1;
 }
 
 void criarTabela(void) {
@@ -190,7 +229,7 @@ int inserirTLB(int pagina, int frame, char *algoritmo) {
 int main(int argc, char *argv[]) {
 
     if (argc != 4) {
-        fprintf(stderr, "Informe o arquivo de enderecos e o algoritmo\n");
+        fprintf(stderr, "Uso: ./vm <arquivo> <fifo|lru> <fifo|lru>\n");
         return 1;
     }
 
@@ -211,7 +250,11 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    FILE *disco = fopen("testes/oficiais/BACKING_STORE.bin", "rb");
+    FILE *disco = fopen("BACKING_STORE.bin", "rb");
+
+    if (disco == NULL) {
+        disco = fopen("testes/oficiais/BACKING_STORE.bin", "rb");
+    }
 
     if (disco == NULL) {
         fprintf(stderr, "Erro ao abrir disco\n");
@@ -236,16 +279,7 @@ int main(int argc, char *argv[]) {
 
 
     criarTabela();
-    while ((final = fscanf(arquivo, "%d", &endereco)) == 1) {
-
-        if (endereco < 0 || endereco > 65535) {
-            fprintf(stderr, "Endereco invalido\n");
-            fclose(arquivo);
-            fclose(disco);
-            fclose(saida);
-            remove("correct.txt.tmp");
-            return 1;
-        }
+    while ((final = lerEndereco(arquivo, &endereco)) == 1) {
 
         int pagina = getPaginaAtual(endereco);
         int offset = getOffsetAtual(endereco);
@@ -312,7 +346,11 @@ int main(int argc, char *argv[]) {
     }
 
     if (final != EOF || ferror(arquivo) || quantidade == 0) {
-        fprintf(stderr, "Arquivo invalido\n");
+        if (final == -2) {
+            fprintf(stderr, "Endereco invalido\n");
+        } else {
+            fprintf(stderr, "Arquivo invalido\n");
+        }
         fclose(arquivo);
         fclose(disco);
         fclose(saida);
