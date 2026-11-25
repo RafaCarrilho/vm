@@ -24,9 +24,10 @@ signed char memoriaFisica[NUM_FRAMES][PAGE_SIZE];
 int paginasTLB[TLB_SIZE];
 int framesTLB[TLB_SIZE];
 int ultimoAcessoTLB[TLB_SIZE];
+int insercaoTLB[TLB_SIZE];
 
 
-int proximaEntradaTLB = 0;
+int contadorInsercaoTLB = 0;
 
 int proximoFrame = 0;
 
@@ -88,6 +89,7 @@ void criarTabela(void) {
         paginasTLB[i] = -1;
         framesTLB[i] = -1;
         ultimoAcessoTLB[i] = -1;
+        insercaoTLB[i] = -1;
     }
 }
 
@@ -139,7 +141,7 @@ int escolherVitimaLRU(void) {
     return vitima;
 }
 
-int escolherVitimaTLB(void) {
+int escolherVitimaTLB(int *tempos) {
 
     int vitima = 0;
 
@@ -148,7 +150,7 @@ int escolherVitimaTLB(void) {
             return i;
         }
 
-        if (ultimoAcessoTLB[i] < ultimoAcessoTLB[vitima]) {
+        if (tempos[i] < tempos[vitima]) {
             vitima = i;
         }
     }
@@ -188,7 +190,6 @@ int buscarTLB(int pagina) {
     for (int i = 0; i < criadas; i++) {
         if (pthread_join(threads[i], NULL) != 0) {
             fprintf(stderr, "Erro ao aguardar thread\n");
-            remove("correct.txt.tmp");
             exit(1);
         }
     }
@@ -208,18 +209,15 @@ int buscarTLB(int pagina) {
 
 int inserirTLB(int pagina, int frame, char *algoritmo) {
 
-    int entrada = proximaEntradaTLB;
+    int entrada;
 
     if (strcmp(algoritmo, "lru") == 0) {
-        entrada = escolherVitimaTLB();
+        entrada = escolherVitimaTLB(ultimoAcessoTLB);
     } else {
-        proximaEntradaTLB++;
-
-        if (proximaEntradaTLB == TLB_SIZE) {
-            proximaEntradaTLB = 0;
-        }
+        entrada = escolherVitimaTLB(insercaoTLB);
     }
 
+    insercaoTLB[entrada] = contadorInsercaoTLB++;
     paginasTLB[entrada] = pagina;
     framesTLB[entrada] = frame;
 
@@ -253,21 +251,8 @@ int main(int argc, char *argv[]) {
     FILE *disco = fopen("BACKING_STORE.bin", "rb");
 
     if (disco == NULL) {
-        disco = fopen("testes/oficiais/BACKING_STORE.bin", "rb");
-    }
-
-    if (disco == NULL) {
         fprintf(stderr, "Erro ao abrir disco\n");
         fclose(arquivo);
-        return 1;
-    }
-
-    FILE *saida = fopen("correct.txt.tmp", "w");
-
-    if (saida == NULL) {
-        fprintf(stderr, "Erro ao criar arquivo de saida\n");
-        fclose(arquivo);
-        fclose(disco);
         return 1;
     }
 
@@ -275,7 +260,6 @@ int main(int argc, char *argv[]) {
     int final;
     int quantidade = 0;
     int pageFaults = 0;
-    int tlbHits = 0;
 
 
     criarTabela();
@@ -291,15 +275,12 @@ int main(int argc, char *argv[]) {
             fprintf(stderr, "Erro ao criar threads\n");
             fclose(arquivo);
             fclose(disco);
-            fclose(saida);
-            remove("correct.txt.tmp");
             return 1;
         }
 
         if (entradaTLB != -1) {
 
             frame = framesTLB[entradaTLB];
-            tlbHits++;
 
         } else {
 
@@ -317,8 +298,6 @@ int main(int argc, char *argv[]) {
                     fprintf(stderr, "Erro ao carregar pagina\n");
                     fclose(arquivo);
                     fclose(disco);
-                    fclose(saida);
-                    remove("correct.txt.tmp");
                     return 1;
                 }
 
@@ -339,7 +318,7 @@ int main(int argc, char *argv[]) {
         int enderecoFisico = frame * PAGE_SIZE + offset;
         int valor = memoriaFisica[frame][offset];
 
-        fprintf(saida, "Virtual address: %d TLB: %d Physical address: %d Value: %d\n",
+        printf("Virtual address: %d TLB: %d Physical address: %d Value: %d\n",
             endereco, entradaTLB, enderecoFisico, valor);
 
         quantidade++;
@@ -353,38 +332,14 @@ int main(int argc, char *argv[]) {
         }
         fclose(arquivo);
         fclose(disco);
-        fclose(saida);
-        remove("correct.txt.tmp");
         return 1;
     }
-
-    double pageFaultRate = (double) pageFaults / quantidade;
-    double tlbHitRate = (double) tlbHits / quantidade;
-
-    fprintf(saida, "Number of Translated Addresses = %d\n", quantidade);
-    fprintf(saida, "Page Faults = %d\n", pageFaults);
-    fprintf(saida, "Page Fault Rate = %.3f\n", pageFaultRate);
-    fprintf(saida, "TLB Hits = %d\n", tlbHits);
-    fprintf(saida, "TLB Hit Rate = %.3f\n", tlbHitRate);
 
     fclose(arquivo);
     fclose(disco);
 
-    int erroSaida = ferror(saida);
-
-    if (fclose(saida) != 0) {
-        erroSaida = 1;
-    }
-
-    if (erroSaida != 0) {
-        fprintf(stderr, "Erro ao escrever arquivo\n");
-        remove("correct.txt.tmp");
-        return 1;
-    }
-
-    if (rename("correct.txt.tmp", "correct.txt") != 0) {
-        fprintf(stderr, "Erro ao renomear arquivo\n");
-        remove("correct.txt.tmp");
+    if (fflush(stdout) != 0 || ferror(stdout)) {
+        fprintf(stderr, "Erro ao escrever saida\n");
         return 1;
     }
 
