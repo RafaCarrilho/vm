@@ -1,0 +1,426 @@
+Script started on 2026-11-24 11:26:26-03:00 [COMMAND="bash -x -c 'date; whoami; pwd; git config --local --list; git status -sb; ls -la testes/oficiais; (cd testes/oficiais && sha256sum -c SHA256SUMS); git ls-remote origin && echo REMOTO_OK; tail -c 40 testes/oficiais/addresses.txt | cat -A'" TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="268" LINES="10"]
++ date
+Tue Nov 24 11:26:26 -03 2026
++ whoami
+racarrilho
++ pwd
+/home/racarrilho/dev/vm
++ git config --local --list
+[?1h=core.repositoryformatversion=0[m
+core.filemode=true[m
+core.bare=false[m
+core.logallrefupdates=true[m
+user.name=RafaCarrilho[m
+user.email=rac4@cesar.school[m
+remote.origin.url=https://github.com/RafaCarrilho/vm.git[m
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*[m
+credential.helper=!gh auth git-credential[m
+:[K[K[?1l>+ git status -sb
+## No commits yet on [32mmain[m
+[31m??[m .gitignore
+[31m??[m Makefile
+[31m??[m README.md
+[31m??[m evidencias.log
+[31m??[m main.c
++ ls -la testes/oficiais
+total 284
+drwxr-xr-x 2 racarrilho racarrilho   4096 Nov 24 11:26 .
+drwxr-xr-x 3 racarrilho racarrilho   4096 Nov 24 11:00 ..
+-r--r--r-- 1 racarrilho racarrilho 138033 Nov 24 10:51 06_vm.docx.pdf
+-r--r--r-- 1 racarrilho racarrilho  65536 Nov 24 10:50 BACKING_STORE.bin
+-r--r--r-- 1 racarrilho racarrilho    323 Nov 24 11:26 SHA256SUMS
+-r--r--r-- 1 racarrilho racarrilho   5831 Nov 24 10:51 addresses.txt
+-r--r--r-- 1 racarrilho racarrilho  63577 Nov 24 10:51 correct.txt
++ cd testes/oficiais
++ sha256sum -c SHA256SUMS
+06_vm.docx.pdf: OK
+BACKING_STORE.bin: OK
+addresses.txt: OK
+correct.txt: OK
++ git ls-remote origin
++ echo REMOTO_OK
+REMOTO_OK
++ tail -c 40 testes/oficiais/addresses.txt
++ cat -A
+7736$
+31260$
+17071$
+8940$
+9929$
+45563$
+12107 $
+
+Script done on 2026-11-24 11:26:32-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-11-24 11:26:46-03:00 [TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="268" LINES="10"]
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ exitcode .[2Pexit[K[H[2J]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ racarrilho@DESKTOP-794TA68:~/dev/vm/testes/oficiais$ cd ~/dev/vm/testes/oficiais \
+&& rm -- "06_vm.docx.pdf:Zone.Identifier" "BACKING_STORE.bin:Zone.Identifier" "addresses.txt:Zone.Identifier" "correct.txt:Zone.Identifier" \
+&& sha256sum 06_vm.docx.pdf BACKING_STORE.bin addresses.txt correct.txt > SHA256SUMS \
+&& chmod a-w 06_vm.docx.pdf BACKING_STORE.bin addresses.txt correct.txt SHA256SUMS \
+&& cd ~/dev/vm \
+&& ps -ef | grep '[s]cript -' ; \
+script -af evidencias.log -c "bash -x -c 'date; whoami; pwd; git config --local --list; git status -sb; ls -la testes/oficiais; (cd testes/oficiais && sha256sum -c SHA256SUMS); git ls-remote origin && echo REMOTO_OK; tail -c 40 testes/oficiais/addresses.txt | cat -A'" 
+Script started, output log file is 'evidencias.log'.
++ date
+Tue Nov 24 11:26:26 -03 2026
++ whoami
+racarrilho
++ pwd
+/home/racarrilho/dev/vm
++ git config --local --list
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+user.name=RafaCarrilho
+user.email=rac4@cesar.school
+remote.origin.url=https://github.com/RafaCarrilho/vm.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+credential.helper=!gh auth git-credential
++ git status -sb
+## No commits yet on main
+?? .gitignore
+?? Makefile
+?? README.md
+?? evidencias.log
+?? main.c
++ ls -la testes/oficiais
+total 284
+drwxr-xr-x 2 racarrilho racarrilho   4096 Nov 24 11:26 .
+drwxr-xr-x 3 racarrilho racarrilho   4096 Nov 24 11:00 ..
+-r--r--r-- 1 racarrilho racarrilho 138033 Nov 24 10:51 06_vm.docx.pdf
+-r--r--r-- 1 racarrilho racarrilho  65536 Nov 24 10:50 BACKING_STORE.bin
+-r--r--r-- 1 racarrilho racarrilho    323 Nov 24 11:26 SHA256SUMS
+-r--r--r-- 1 racarrilho racarrilho   5831 Nov 24 10:51 addresses.txt
+-r--r--r-- 1 racarrilho racarrilho  63577 Nov 24 10:51 correct.txt
++ cd testes/oficiais
++ sha256sum -c SHA256SUMS
+06_vm.docx.pdf: OK
+BACKING_STORE.bin: OK
+addresses.txt: OK
+correct.txt: OK
++ git ls-remote origin
++ echo REMOTO_OK
+REMOTO_OK
++ tail -c 40 testes/oficiais/addresses.txt
+[7m+ cat -A[27m
+[7m7736$[27m
+[7m31260$[27m
+[7m17071$[27m
+[7m8940$[27m
+[7m9929$[27m
+[7m45563$[27m
+[7m12107 $[27m
+[7mScript done.[27m
+[7mracarrilho@DESKTOP-794TA68:~/dev/vm$ [27m[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Aexit[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccode .[1P.d ~/dev[2P[C[C[Cgit status --shortpush origin maincommit -m "Remove arquivos fornecidos pelo professor"[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpush origin main[K[2Pstatus --short[12Pcd dev[2@~/[C[C[C[3Pode. .[2Pexit[H[2J]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ racarrilho@DESKTOP-794TA68:~/dev/vm/testes/oficiais$ cd ~/dev/vm/testes/oficiais \
+&& rm -- "06_vm.docx.pdf:Zone.Identifier" "BACKING_STORE.bin:Zone.Identifier" "addresses.txt:Zone.Identifier" "correct.txt:Zone.Identifier" \
+&& sha256sum 06_vm.docx.pdf BACKING_STORE.bin addresses.txt correct.txt > SHA256SUMS \
+&& chmod a-w 06_vm.docx.pdf BACKING_STORE.bin addresses.txt correct.txt SHA256SUMS \
+&& cd ~/dev/vm \
+&& ps -ef | grep '[s]cript -' ; \
+script -af evidencias.log -c "bash -x -c 'date; whoami; pwd; git config --local --list; git status -sb; ls -la testes/oficiais; (cd testes/oficiais && sha256sum -c SHA256SUMS); git ls-remote origin && echo REMOTO_OK; tail -c 40 testes/oficiais/addresses.txt | cat -A'" 
+Script started, output log file is 'evidencias.log'.
++ date
+Tue Nov 24 11:26:26 -03 2026
++ whoami
+racarrilho
++ pwd
+/home/racarrilho/dev/vm
++ git config --local --list
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+user.name=RafaCarrilho
+user.email=rac4@cesar.school
+remote.origin.url=https://github.com/RafaCarrilho/vm.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+credential.helper=!gh auth git-credential
++ git status -sb
+## No commits yet on main
+?? .gitignore
+?? Makefile
+?? README.md
+?? evidencias.log
+?? main.c
++ ls -la testes/oficiais
+total 284
+drwxr-xr-x 2 racarrilho racarrilho   4096 Nov 24 11:26 .
+drwxr-xr-x 3 racarrilho racarrilho   4096 Nov 24 11:00 ..
+-r--r--r-- 1 racarrilho racarrilho 138033 Nov 24 10:51 06_vm.docx.pdf
+-r--r--r-- 1 racarrilho racarrilho  65536 Nov 24 10:50 BACKING_STORE.bin
+-r--r--r-- 1 racarrilho racarrilho    323 Nov 24 11:26 SHA256SUMS
+-r--r--r-- 1 racarrilho racarrilho   5831 Nov 24 10:51 addresses.txt
+-r--r--r-- 1 racarrilho racarrilho  63577 Nov 24 10:51 correct.txt
++ cd testes/oficiais
++ sha256sum -c SHA256SUMS
+06_vm.docx.pdf: OK
+BACKING_STORE.bin: OK
+addresses.txt: OK
+correct.txt: OK
++ git ls-remote origin
++ echo REMOTO_OK
+REMOTO_OK
++ tail -c 40 testes/oficiais/addresses.txt
++ cat -A
+7736$
+31260$
+17071$
+8940$
+9929$
+45563$
+12107 $
+Script done.
+racarrilho@DESKTOP-794TA68:~/dev/vm$ [7mcd ~/dev/vm && ps -ef | grep '[s]cript -af'; ls testes/oficiais | grep -c evidencias.log[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd ~/dev/vm && ps -ef | grep '[s]cript -af'; ls testes/oficiais | grep -c evidencias.log
+[?2004lbash: racarrilho@DESKTOP-794TA68:~/dev/vm/testes/oficiais$: No such file or directory
+Script started, output log file is 'evidencias.log'.
+Script started on 2026-11-24 11:28:19-03:00 [COMMAND="bash -x -c 'date; whoami; pwd; git config --local --list; git status -sb; ls -la testes/oficiais; (cd testes/oficiais && sha256sum -c SHA256SUMS); git ls-remote origin && echo REMOTO_OK; tail -c 40 testes/oficiais/addresses.txt | cat -A'" TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="268" LINES="10"]
++ date
++ date
+Tue Nov 24 11:28:19 -03 2026
+Tue Nov 24 11:28:19 -03 2026
++ whoami
++ whoami
+racarrilho
+racarrilho
++ pwd
+/home/racarrilho/dev/vm
++ git config --local --list
++ pwd
+/home/racarrilho/dev/vm
++ git config --local --list
+[?1h=core.repositoryformatversion=0[m
+core.filemode=true[m
+core.bare=false[m
+core.logallrefupdates=true[m
+user.name=RafaCarrilho[m
+user.email=rac4@cesar.school[m
+remote.origin.url=https://github.com/RafaCarrilho/vm.git[m
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*[m
+credential.helper=!gh auth git-credential[m
+:[K[?1h=core.repositoryformatversion=0[m
+core.filemode=true[m
+core.bare=false[m
+core.logallrefupdates=true[m
+user.name=RafaCarrilho[m
+user.email=rac4@cesar.school[m
+remote.origin.url=https://github.com/RafaCarrilho/vm.git[m
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*[m
+credential.helper=!gh auth git-credential[m
+:[K[K[?1l>[K[?1l>+ git status -sb
++ git status -sb
+## No commits yet on [32mmain[m
+[31m??[m .gitignore
+[31m??[m Makefile
+[31m??[m README.md
+[31m??[m evidencias.log
+[31m??[m main.c
+## No commits yet on [32mmain[m
+[31m??[m .gitignore
+[31m??[m Makefile
+[31m??[m README.md
+[31m??[m evidencias.log
+[31m??[m main.c
++ ls -la testes/oficiais
++ ls -la testes/oficiais
+total 284
+drwxr-xr-x 2 racarrilho racarrilho   4096 Nov 24 11:26 .
+drwxr-xr-x 3 racarrilho racarrilho   4096 Nov 24 11:00 ..
+-r--r--r-- 1 racarrilho racarrilho 138033 Nov 24 10:51 06_vm.docx.pdf
+-r--r--r-- 1 racarrilho racarrilho  65536 Nov 24 10:50 BACKING_STORE.bin
+-r--r--r-- 1 racarrilho racarrilho    323 Nov 24 11:26 SHA256SUMS
+-r--r--r-- 1 racarrilho racarrilho   5831 Nov 24 10:51 addresses.txt
+-r--r--r-- 1 racarrilho racarrilho  63577 Nov 24 10:51 correct.txt
+total 284
+drwxr-xr-x 2 racarrilho racarrilho   4096 Nov 24 11:26 .
+drwxr-xr-x 3 racarrilho racarrilho   4096 Nov 24 11:00 ..
+-r--r--r-- 1 racarrilho racarrilho 138033 Nov 24 10:51 06_vm.docx.pdf
+-r--r--r-- 1 racarrilho racarrilho  65536 Nov 24 10:50 BACKING_STORE.bin
+-r--r--r-- 1 racarrilho racarrilho    323 Nov 24 11:26 SHA256SUMS
+-r--r--r-- 1 racarrilho racarrilho   5831 Nov 24 10:51 addresses.txt
+-r--r--r-- 1 racarrilho racarrilho  63577 Nov 24 10:51 correct.txt
++ cd testes/oficiais
++ cd testes/oficiais
++ sha256sum -c SHA256SUMS
++ sha256sum -c SHA256SUMS
+06_vm.docx.pdf: OK
+06_vm.docx.pdf: OK
+BACKING_STORE.bin: OK
+BACKING_STORE.bin: OK
+addresses.txt: OK
+addresses.txt: OK
+correct.txt: OK
+correct.txt: OK
++ git ls-remote origin
++ git ls-remote origin
++ echo REMOTO_OK
+REMOTO_OK
++ echo REMOTO_OK
+REMOTO_OK
++ tail -c 40 testes/oficiais/addresses.txt
++ cat -A
++ tail -c 40 testes/oficiais/addresses.txt
++ cat -A
+7736$
+31260$
+17071$
+8940$
+9929$
+45563$
+12107 $
+7736$
+31260$
+17071$
+8940$
+9929$
+45563$
+12107 $
+
+Script done on 2026-11-24 11:28:22-03:00 [COMMAND_EXIT_CODE="0"]
+Script done.
+Command 'Script' not found, did you mean:
+  command 'script' from deb bsdutils (1:2.41.3-3ubuntu2)
+Try: sudo apt install <deb name>
++: command not found
+Command 'Tue' not found, did you mean:
+  command 'rue' from snap darkdimension-rue (1.0.7)
+  command 'vue' from snap vue (3.3.0)
+  command 'due' from deb due (3.0.0-1build1)
+See 'snap info <snapname>' for additional versions.
++: command not found
+racarrilho: command not found
++: command not found
+bash: /home/racarrilho/dev/vm: Is a directory
++: command not found
+core.repositoryformatversion=0: command not found
+core.filemode=true: command not found
+core.bare=false: command not found
+core.logallrefupdates=true: command not found
+user.name=RafaCarrilho: command not found
+user.email=rac4@cesar.school: command not found
+bash: remote.origin.url=https://github.com/RafaCarrilho/vm.git: No such file or directory
+bash: remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*: No such file or directory
+bash: !gh: event not found
++: command not found
+??: command not found
+??: command not found
+??: command not found
+??: command not found
+??: command not found
++: command not found
+Command 'total' not found, did you mean:
+  command 'topal' from deb topal (84-1build2)
+Try: sudo apt install <deb name>
+drwxr-xr-x: command not found
+drwxr-xr-x: command not found
+-r--r--r--: command not found
+-r--r--r--: command not found
+-r--r--r--: command not found
+-r--r--r--: command not found
+-r--r--r--: command not found
++: command not found
++: command not found
+06_vm.docx.pdf:: command not found
+BACKING_STORE.bin:: command not found
+addresses.txt:: command not found
+correct.txt:: command not found
++: command not found
++: command not found
+REMOTO_OK: command not found
++: command not found
++: command not found
+7736$: command not found
+31260$: command not found
+17071$: command not found
+8940$: command not found
+9929$: command not found
+45563$: command not found
+12107: command not found
+Command 'Script' not found, did you mean:
+  command 'script' from deb bsdutils (1:2.41.3-3ubuntu2)
+Try: sudo apt install <deb name>
+bash: racarrilho@DESKTOP-794TA68:~/dev/vm$: No such file or directory
+0
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mcd ~/dev/vm && ps -ef | grep '[s]cript -af'; wc -l evidencias.log; grep -c 'command not found' evidencias.log; grep -n 'Script started' evidencias.log; tail -n 3 evidencias.log[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd ~/dev/vm && ps -ef | grep '[s]cript -af'; wc -l evidencias.log; grep -c 'command not found' evidencias.log; grep -n 'Script started' evidencias.log; tail -n 3 evidencias.log
+[?2004lracarri+    7703    2030  0 11:26 pts/8    00:00:00 [01;31m[Kscript -af[m[K evidencias.log
+404 evidencias.log
+44
+[32m[K1[m[K[36m[K:[m[K[01;31m[KScript started[m[K on 2026-11-24 11:26:26-03:00 [COMMAND="bash -x -c 'date; whoami; pwd; git config --local --list; git status -sb; ls -la testes/oficiais; (cd testes/oficiais && sha256sum -c SHA256SUMS); git ls-remote origin && echo REMOTO_OK; tail -c 40 testes/oficiais/addresses.txt | cat -A'" TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="268" LINES="10"]
+[32m[K54[m[K[36m[K:[m[K[01;31m[KScript started[m[K on 2026-11-24 11:26:46-03:00 [TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="268" LINES="10"]
+[32m[K62[m[K[36m[K:[m[K[01;31m[KScript started[m[K, output log file is 'evidencias.log'.
+[32m[K181[m[K[36m[K:[m[K[01;31m[KScript started[m[K, output log file is 'evidencias.log'.
+[32m[K235[m[K[36m[K:[m[K[01;31m[KScript started[m[K, output log file is 'evidencias.log'.
+[32m[K236[m[K[36m[K:[m[K[01;31m[KScript started[m[K on 2026-11-24 11:28:19-03:00 [COMMAND="bash -x -c 'date; whoami; pwd; git config --local --list; git status -sb; ls -la testes/oficiais; (cd testes/oficiais && sha256sum -c SHA256SUMS); git ls-remote origin && echo REMOTO_OK; tail -c 40 testes/oficiais/addresses.txt | cat -A'" TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="268" LINES="10"]
+[32m[K403[m[K[36m[K:[m[K[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mcd ~/dev/vm && ps -ef | grep '[s]cript -af'; wc -l evidencias.log; grep -c 'command not found' evidencias.log; grep -n '[01;31m[KScript started[m[K' evidencias.log; tail -n 3 evidencias.log[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd ~/dev/vm && ps -ef | grep '[s]cript -af'; wc -l evidencias.log; grep -c 'command not found' evidencias.log; grep -n '[01;31m[KScript started[m[K' evidencias.log; tail -n 3 evidencias.log
+[32m[K407[m[K[36m[K:[m[K[32m[K1[m[K[36m[K:[m[K[01;31m[K[01;31m[KScript started[m[K[m[K on 2026-11-24 11:26:26-03:00 [COMMAND="bash -x -c 'date; whoami; pwd; git config --local --list; git status -sb; ls -la testes/oficiais; (cd testes/oficiais && sha256sum -c SHA256SUMS); git ls-remote origin && echo REMOTO_OK; tail -c 40 testes/oficiais/addresses.txt | cat -A'" TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="268" LINES="10"]
+[32m[K408[m[K[36m[K:[m[K[32m[K54[m[K[36m[K:[m[K[01;31m[K[01;31m[KScript started[m[K[m[K on 2026-11-24 11:26:46-03:00 [TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="268" LINES="10"]
+[32m[K409[m[K[36m[K:[m[K[32m[K62[m[K[36m[K:[m[K[01;31m[K[01;31m[KScript started[m[K[m[K, output log file is 'evidencias.log'.
+[32m[K410[m[K[36m[K:[m[K[32m[K181[m[K[36m[K:[m[K[01;31m[K[01;31m[KScript started[m[K[m[K, output log file is 'evidencias.log'.
+[32m[K411[m[K[36m[K:[m[K[32m[K235[m[K[36m[K:[m[K[01;31m[K[01;31m[KScript started[m[K[m[K, output log file is 'evidencias.log'.
+[32m[K412[m[K[36m[K:[m[K[32m[K236[m[K[36m[K:[m[K[01;31m[K[01;31m[KScript started[m[K[m[K on 2026-11-24 11:28:19-03:00 [COMMAND="bash -x -c 'date; whoami; pwd; git config --local --list; git status -sb; ls -la testes/oficiais; (cd testes/oficiais && sha256sum -c SHA256SUMS); git ls-remote origin && echo REMOTO_OK; tail -c 40 testes/oficiais/addresses.txt | cat -A'" TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="268" LINES="10"]
+[32m[K410[m[K[36m[K:[m[K[32m[K181[m[K[36m[K:[m[K[01;31m[K[01;31m[KScript started[m[K[m[K, output log file is 'evidencias.log'.
+[32m[K411[m[K[36m[K:[m[K[32m[K235[m[K[36m[K:[m[K[01;31m[K[01;31m[KScript started[m[K[m[K, output log file is 'evidencias.log'.
+[32m[K412[m[K[36m[K:[m[K[32m[K236[m[K[36m[K:[m[K[01;31m[K[01;31m[KScript started[m[K[m[K on 2026-11-24 11:28:19-03:00 [COMMAND="bash -x -c 'date; whoami; pwd; git config --local --list; git status -sb; ls -la testes/oficiais; (cd testes/oficiais && sha256sum -c SHA256SUMS); git ls-remote origin && echo REMOTO_OK; tail -c 40 testes/oficiais/addresses.txt | cat -A'" TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="268" LINES="10"]
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ exit
+[?2004lexit
+
+Script done on 2026-11-24 11:32:03-03:00 [COMMAND_EXIT_CODE="0"]

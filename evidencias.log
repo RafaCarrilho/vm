@@ -1,0 +1,2746 @@
+Script started on 2026-11-24 11:32:10-03:00 [COMMAND="bash -x -c 'date; git config --local --list; git status -sb; (cd testes/oficiais && sha256sum -c SHA256SUMS); git ls-remote origin && echo REMOTO_OK; ls -la'" TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="268" LINES="10"]
++ date
+Tue Nov 24 11:32:10 -03 2026
++ git config --local --list
+[?1h=core.repositoryformatversion=0[m
+core.filemode=true[m
+core.bare=false[m
+core.logallrefupdates=true[m
+user.name=RafaCarrilho[m
+user.email=rac4@cesar.school[m
+remote.origin.url=https://github.com/RafaCarrilho/vm.git[m
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*[m
+credential.helper=!gh auth git-credential[m
+:[K[K[?1l>+ git status -sb
+## No commits yet on [32mmain[m
+[31m??[m .gitignore
+[31m??[m Makefile
+[31m??[m README.md
+[31m??[m evidencias.log
+[31m??[m evidencias_ambiente.log
+[31m??[m main.c
++ cd testes/oficiais
++ sha256sum -c SHA256SUMS
+06_vm.docx.pdf: OK
+BACKING_STORE.bin: OK
+addresses.txt: OK
+correct.txt: OK
++ git ls-remote origin
++ echo REMOTO_OK
+REMOTO_OK
++ ls -la
+total 44
+drwxr-xr-x 4 racarrilho racarrilho  4096 Nov 24 11:32 .
+drwxr-xr-x 6 racarrilho racarrilho  4096 Nov 24 10:54 ..
+drwxr-xr-x 6 racarrilho racarrilho  4096 Nov 24 11:32 .git
+-rw-r--r-- 1 racarrilho racarrilho    35 Nov 24 11:00 .gitignore
+-rw-r--r-- 1 racarrilho racarrilho     0 Nov 24 11:00 Makefile
+-rw-r--r-- 1 racarrilho racarrilho     0 Nov 24 11:00 README.md
+-rw-r--r-- 1 racarrilho racarrilho  1096 Nov 24 11:32 evidencias.log
+-rw-r--r-- 1 racarrilho racarrilho 19349 Nov 24 11:32 evidencias_ambiente.log
+-rw-r--r-- 1 racarrilho racarrilho     0 Nov 24 10:55 main.c
+drwxr-xr-x 3 racarrilho racarrilho  4096 Nov 24 11:00 testes
+
+Script done on 2026-11-24 11:32:13-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-11-24 11:52:16-03:00 [TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="268" LINES="10"]
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c && ./teste[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -Wall -Wextra -o teste main.c && ./teste
+[?2004lAddress: 16916
+Page: 66
+Offset: 20
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt | wc -l[27m
+[7m./teste testes/oficiais/addresses.txt | head -1[27m
+[7m./teste testes/oficiais/addresses.txt | tail -1[27m
+[7mprintf 'abc\n' > /tmp/lixo.txt; ./teste /tmp/lixo.txt; echo "saida=$?"[27m
+[7m: > /tmp/vazio.txt; ./teste /tmp/vazio.txt; echo "saida=$?"[27m
+[7m./teste; echo "saida=$?"[27m
+[7m./teste nao_existe.txt; echo "saida=$?"[27m[A[A[A[A[A[Agcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt | wc -l
+./teste testes/oficiais/addresses.txt | head -1
+./teste testes/oficiais/addresses.txt | tail -1
+printf 'abc\n' > /tmp/lixo.txt; ./teste /tmp/lixo.txt; echo "saida=$?"
+: > /tmp/vazio.txt; ./teste /tmp/vazio.txt; echo "saida=$?"
+./teste; echo "saida=$?"
+./teste nao_existe.txt; echo "saida=$?"
+[?2004l1000
+Address: 16916 Page: 66 Offset: 20
+Address: 12107 Page: 47 Offset: 75
+saida=0
+saida=0
+Informe o arquivo de enderecos
+saida=1
+Erro ao abrir arquivo
+saida=1
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgrep -c "Page: 47 Offset: 75" ~/dev/vm/evidencias.log[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgrep -c "Page: 47 Offset: 75" ~/dev/vm/evidencias.log
+[?2004l2
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mecho teste >> .gitignore[27mecho teste >> .gitignore
+[?2004l[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mtail -n 2 evidencias.log[27mtail -n 2 evidencias.log
+[?2004l[?2004l[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mtail -n 2 evidencias.log[27mtail -n 2 evidencias.log
+[?2004l[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mtail -n 2 evidencias.log[27mtail -n 2 evidencias.log
+[?2004l[?2004l[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mtail -n 2 evidencias.log[27mtail -n 2 evidencias.log
+[?2004l[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt | wc -l[27m
+[7m./teste testes/oficiais/addresses.txt > /dev/null; echo "oficial saida=$?"[27m
+[7mprintf 'abc\n' > /tmp/lixo.txt; ./teste /tmp/lixo.txt; echo "lixo saida=$?"[27m
+[7m: > /tmp/vazio.txt; ./teste /tmp/vazio.txt; echo "vazio saida=$?"[27m
+[7mprintf '16916\n-5\n' > /tmp/neg.txt; ./teste /tmp/neg.txt; echo "neg saida=$?"[27m
+[7mprintf '70000\n' > /tmp/alto.txt; ./teste /tmp/alto.txt; echo "alto saida=$?"[27m
+[7m./teste; echo "semarg saida=$?"[27m
+[7m./teste nao_existe.txt; echo "inexistente saida=$?"[27m[A[A[A[A[A[A[Agcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt | wc -l
+./teste testes/oficiais/addresses.txt > /dev/null; echo "oficial saida=$?"
+printf 'abc\n' > /tmp/lixo.txt; ./teste /tmp/lixo.txt; echo "lixo saida=$?"
+: > /tmp/vazio.txt; ./teste /tmp/vazio.txt; echo "vazio saida=$?"
+printf '16916\n-5\n' > /tmp/neg.txt; ./teste /tmp/neg.txt; echo "neg saida=$?"
+printf '70000\n' > /tmp/alto.txt; ./teste /tmp/alto.txt; echo "alto saida=$?"
+./teste; echo "semarg saida=$?"
+./teste nao_existe.txt; echo "inexistente saida=$?"
+[?2004l1000
+oficial saida=0
+Arquivo invalido
+lixo saida=1
+Arquivo invalido
+vazio saida=1
+Address: 16916 Page: 66 Offset: 20
+Endereco invalido
+neg saida=1
+Endereco invalido
+alto saida=1
+Informe o arquivo de enderecos
+semarg saida=1
+Erro ao abrir arquivo
+inexistente saida=1
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ date
+[?2004lTue Nov 24 12:15:48 -03 2026
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ pwd
+[?2004l/home/racarrilho/dev/vm
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ whomai[K[K[Kami
+[?2004lracarrilho
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mcd ~/dev/vm && grep -c "neg saida" evidencias.log; git add main.c .gitignore && git status -sb && git diff --cached --stat[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd ~/dev/vm && grep -c "neg saida" evidencias.log; git add main.c .gitignore && git status -sb && git diff --cached --stat
+[?2004l4
+## No commits yet on [32mmain[m
+[32mA[m  .gitignore
+[32mA[m  main.c
+[31m??[m Makefile
+[31m??[m README.md
+[31m??[m evidencias.log
+[31m??[m evidencias_ambiente.log
+[31m??[m teste
+[?1h= .gitignore |  4 [32m++++[m[m
+ main.c     | 57 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m[m
+ 2 files changed, 61 insertions(+)[m
+[K[?1l>[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mcd ~/dev/vm && printf 'vm\n*.o\ntestes/oficiais/\ncorrect.txt\nteste\n' > .gitignore && cat -A .gitignore && git add .gitignore && git status -sb[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd ~/dev/vm && printf 'vm\n*.o\ntestes/oficiais/\ncorrect.txt\nteste\n' > .gitignore && cat -A .gitignore && git add .gitignore && git status -sb
+[?2004lvm$
+*.o$
+testes/oficiais/$
+correct.txt$
+teste$
+## No commits yet on [32mmain[m
+[32mA[m  .gitignore
+[32mA[m  main.c
+[31m??[m Makefile
+[31m??[m README.md
+[31m??[m evidencias.log
+[31m??[m evidencias_ambiente.log
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit commit -m "Le addresses.txt, calcula pagina/offset e valida entrada" -m "Co-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01CWssFiBUMPEBbPWWeaG6P4"[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit commit -m "Le addresses.txt, calcula pagina/offset e valida entrada" -m "Co-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01CWssFiBUMPEBbPWWeaG6P4"[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[C[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[C[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[C[1P[1P[1P[1P[1P[1P[1P[1P"[K[7mgit commit -m "Le addresses.txt, calcula pagina/offset e valida entrada"[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit commit -m "Le addresses.txt, calcula pagina/offset e valida entrada"[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K"Estado inciial[K[K[K[K[Kicial ainda, to lendo adresses.txt, calculo pagina e offset, e trata[Ko algunms e[K[K[K[K[Ks[Kns erros"
+[?2004l[main (root-commit) 29da96a] Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+ 2 files changed, 62 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 main.c
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mps -ef | grep '[s]cript -af'[27mps -ef | grep '[s]cript -af'
+[?2004lracarri+   23600    2030  0 11:52 pts/8    00:00:00 [01;31m[Kscript -af[m[K evidencias.log
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c; echo "compilou=$?"; ./teste testes/oficiais/addresses.txt | head -3; ./teste testes/oficiais/addresses.txt | wc -l[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -Wall -Wextra -o teste main.c; echo "compilou=$?"; ./teste testes/oficiais/addresses.txt | head -3; ./teste testes/oficiais/addresses.txt | wc -l
+[?2004lcompilou=0
+Address: 16916 Page: 66 Offset: 20
+Address: 62493 Page: 244 Offset: 29
+Address: 30198 Page: 117 Offset: 246
+1000
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt | wc -l[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt | wc -l
+[?2004l[01m[Kmain.c:[m[K In function ‘[01m[KcarregarPagina[m[K’:
+[01m[Kmain.c:30:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kresultado[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-unused-variable-Wunused-variable]8;;[m[K]
+   30 |     int [01;35m[Kresultado[m[K = fseek(disco, posicao, SEEK_SET);
+      |         [01;35m[K^~~~~~~~~[m[K
+1000
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt | wc -l[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt | wc -l
+[?2004l1000
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit --no-pager status -s && git --no-pager log --oneline[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit --no-pager status -s && git --no-pager log --oneline
+[?2004l [31mM[m main.c
+[31m??[m Makefile
+[31m??[m README.md
+[31m??[m evidencias.log
+[31m??[m evidencias_ambiente.log
+[33m29da96a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt | wc -l[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt | wc -l
+[?2004l1000
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit --no-pager log --oneline[27m
+[7mgit --no-pager show --stat 29da96a[27m
+[7mgit status -sb[27m
+[7mgit remote -v[27m
+[7mgrep -n "29da96a" evidencias.log[27m[A[A[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git --no-pager log --oneline
+git --no-pager show --stat 29da96a
+git status -sb
+git remote -v
+grep -n "29da96a" evidencias.log
+[?2004l[33m29da96a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+[33mcommit 29da96abca698fed4d27c280e8511b1a9e6eac36[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 12:21:19 2026 -0300
+
+    Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+
+ .gitignore |  5 [32m+++++[m
+ main.c     | 57 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ 2 files changed, 62 insertions(+)
+## [32mmain[m
+ [31mM[m main.c
+[31m??[m Makefile
+[31m??[m README.md
+[31m??[m evidencias.log
+[31m??[m evidencias_ambiente.log
+origin	https://github.com/RafaCarrilho/vm.git (fetch)
+origin	https://github.com/RafaCarrilho/vm.git (push)
+[32m[K142[m[K[36m[K:[m[K[?2004l[main (root-commit) [01;31m[K29da96a[m[K] Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+[32m[K168[m[K[36m[K:[m[K[33m[01;31m[K29da96a[m[K[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+[32m[K172[m[K[36m[K:[m[K[7mgit --no-pager show --stat [01;31m[K29da96a[m[K[27m
+[32m[K175[m[K[36m[K:[m[K[7mgrep -n "[01;31m[K29da96a[m[K" evidencias.log[27m[A[A[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git --no-pager log --oneline
+[32m[K176[m[K[36m[K:[m[Kgit --no-pager show --stat [01;31m[K29da96a[m[K
+[32m[K179[m[K[36m[K:[m[Kgrep -n "[01;31m[K29da96a[m[K" evidencias.log
+[32m[K180[m[K[36m[K:[m[K[?2004l[33m[01;31m[K29da96a[m[K[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+[32m[K181[m[K[36m[K:[m[K[33mcommit [01;31m[K29da96a[m[Kbca698fed4d27c280e8511b1a9e6eac36[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+[32m[K198[m[K[36m[K:[m[K[32m[K142[m[K[36m[K:[m[K[?2004l[main (root-commit) [01;31m[K[01;31m[K29da96a[m[K[m[K] Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+[32m[K199[m[K[36m[K:[m[K[32m[K168[m[K[36m[K:[m[K[33m[01;31m[K[01;31m[K29da96a[m[K[m[K[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+[32m[K200[m[K[36m[K:[m[K[32m[K172[m[K[36m[K:[m[K[7mgit --no-pager show --stat [01;31m[K[01;31m[K29da96a[m[K[m[K[27m
+[32m[K201[m[K[36m[K:[m[K[32m[K175[m[K[36m[K:[m[K[7mgrep -n "[01;31m[K[01;31m[K29da96a[m[K[m[K" evidencias.log[27m[A[A[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git --no-pager log --oneline
+[32m[K202[m[K[36m[K:[m[K[32m[K176[m[K[36m[K:[m[Kgit --no-pager show --stat [01;31m[K[01;31m[K29da96a[m[K[m[K
+[32m[K203[m[K[36m[K:[m[K[32m[K179[m[K[36m[K:[m[Kgrep -n "[01;31m[K[01;31m[K29da96a[m[K[m[K" evidencias.log
+[32m[K204[m[K[36m[K:[m[K[32m[K180[m[K[36m[K:[m[K[?2004l[33m[01;31m[K[01;31m[K29da96a[m[K[m[K[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+[32m[K205[m[K[36m[K:[m[K[32m[K181[m[K[36m[K:[m[K[33mcommit [01;31m[K[01;31m[K29da96a[m[K[m[Kbca698fed4d27c280e8511b1a9e6eac36[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+[32m[K206[m[K[36m[K:[m[K[32m[K198[m[K[36m[K:[m[K[32m[K142[m[K[36m[K:[m[K[?2004l[main (root-commit) [01;31m[K[01;31m[K[01;31m[K29da96a[m[K[m[K[m[K] Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+[32m[K207[m[K[36m[K:[m[K[32m[K199[m[K[36m[K:[m[K[32m[K168[m[K[36m[K:[m[K[33m[01;31m[K[01;31m[K[01;31m[K29da96a[m[K[m[K[m[K[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+[32m[K208[m[K[36m[K:[m[K[32m[K200[m[K[36m[K:[m[K[32m[K172[m[K[36m[K:[m[K[7mgit --no-pager show --stat [01;31m[K[01;31m[K[01;31m[K29da96a[m[K[m[K[m[K[27m
+[32m[K209[m[K[36m[K:[m[K[32m[K201[m[K[36m[K:[m[K[32m[K175[m[K[36m[K:[m[K[7mgrep -n "[01;31m[K[01;31m[K[01;31m[K29da96a[m[K[m[K[m[K" evidencias.log[27m[A[A[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git --no-pager log --oneline
+[32m[K210[m[K[36m[K:[m[K[32m[K202[m[K[36m[K:[m[K[32m[K176[m[K[36m[K:[m[Kgit --no-pager show --stat [01;31m[K[01;31m[K[01;31m[K29da96a[m[K[m[K[m[K
+[32m[K211[m[K[36m[K:[m[K[32m[K203[m[K[36m[K:[m[K[32m[K179[m[K[36m[K:[m[Kgrep -n "[01;31m[K[01;31m[K[01;31m[K29da96a[m[K[m[K[m[K" evidencias.log
+[32m[K212[m[K[36m[K:[m[K[32m[K204[m[K[36m[K:[m[K[32m[K180[m[K[36m[K:[m[K[?2004l[33m[01;31m[K[01;31m[K[01;31m[K29da96a[m[K[m[K[m[K[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+[32m[K213[m[K[36m[K:[m[K[32m[K205[m[K[36m[K:[m[K[32m[K181[m[K[36m[K:[m[K[33mcommit [01;31m[K[01;31m[K[01;31m[K29da96a[m[K[m[K[m[Kbca698fed4d27c280e8511b1a9e6eac36[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit add main.c[27m
+[7mgit commit -m "Abre BACKING_STORE.bin e adiciona carregarPagina (ainda nao chamada no laco)"[27m
+[7mgit --no-pager show --stat HEAD[27m[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git add main.c
+git commit -m "Abre BACKING_STORE.bin e adiciona carregarPagina (ainda nao chamada no laco)"
+git --no-pager show --stat HEAD
+[?2004l[main f3f382f] Abre BACKING_STORE.bin e adiciona carregarPagina (ainda nao chamada no laco)
+ 1 file changed, 47 insertions(+)
+[33mcommit f3f382f5bfdff602fa0e5bddbe143b28b7f1717b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 13:15:58 2026 -0300
+
+    Abre BACKING_STORE.bin e adiciona carregarPagina (ainda nao chamada no laco)
+
+ main.c | 47 [32m+++++++++++++++++++++++++++++++++++++++++++++++[m
+ 1 file changed, 47 insertions(+)
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt | wc -l[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt | wc -l
+[?2004l1000
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mawk '{print int($1/256)}' testes/oficiais/addresses.txt | sort -u | wc -l[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cawk '{print int($1/256)}' testes/oficiais/addresses.txt | sort -u | wc -l
+[?2004l244
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt > /tmp/meu.txt[27m
+[7mawk '{p=int($1/256); if(!(p in s)){s[p]=1;n++; if(n==129){print NR; exit}}}' testes/oficiais/addresses.txt[27m
+[7msed 's/ TLB: -\?[0-9]*//' testes/oficiais/correct.txt | head -1000 > /tmp/oficial.txt[27m
+[7mdiff <(head -1000 /tmp/meu.txt) /tmp/oficial.txt | head -5[27m
+[7mtail -1 /tmp/meu.txt[27m[A[A[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ gcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt > /tmp/meu.txt
+awk '{p=int($1/256); if(!(p in s)){s[p]=1;n++; if(n==129){print NR; exit}}}' testes/oficiais/addresses.txt
+sed 's/ TLB: -\?[0-9]*//' testes/oficiais/correct.txt | head -1000 > /tmp/oficial.txt
+diff <(head -1000 /tmp/meu.txt) /tmp/oficial.txt | head -5
+tail -1 /tmp/meu.txt
+[?2004l172
+172c172
+< Virtual address: 48855 Physical address: 32983 Value: -75
+---
+> Virtual address: 48855 Physical address: 215 Value: -75
+174c174
+Page Faults = 244
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ DATE[K[K[K[Kdate
+[?2004lTue Nov 24 13:30:32 -03 2026
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ pwd
+[?2004l/home/racarrilho/dev/vm
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ woa[K[Khoan[Kmi
+[?2004lracarrilho
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit add main.c[27m
+[7mgit commit -m "Traduz para endereco fisico, le o valor e conta page faults com 256 frames"[27m
+[7mgit --no-pager show --stat HEAD[27m[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git add main.c
+git commit -m "Traduz para endereco fisico, le o valor e conta page faults com 256 frames"
+git --no-pager show --stat HEAD
+[?2004l[main 19121a7] Traduz para endereco fisico, le o valor e conta page faults com 256 frames
+ 1 file changed, 23 insertions(+), 2 deletions(-)
+[33mcommit 19121a7baef7c68afd41370b350a5557879d1e56[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 13:30:46 2026 -0300
+
+    Traduz para endereco fisico, le o valor e conta page faults com 256 frames
+
+ main.c | 25 [32m+++++++++++++++++++++++[m[31m--[m
+ 1 file changed, 23 insertions(+), 2 deletions(-)
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mdiff <(head -1000 /tmp/meu.txt | awk '{print $3, $NF}') \[27m
+[7m<(head -1000 testes/oficiais/correct.txt | awk '{print $3, $NF}')[27m[Adiff <(head -1000 /tmp/meu.txt | awk '{print $3, $NF}') \
+<(head -1000 testes/oficiais/correct.txt | awk '{print $3, $NF}')
+[?2004l[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt > /tmp/meu.txt[27m
+[7msed 's/ TLB: -\?[0-9]*//' testes/oficiais/correct.txt | head -1000 > /tmp/oficial.txt[27m
+[7msed 's/ Physical address: [0-9]*//' /tmp/oficial.txt > /tmp/oficial_v.txt[27m
+[7mhead -1000 /tmp/meu.txt | sed 's/ Physical address: [0-9]*//' | diff - /tmp/oficial_v.txt | head -5[27m
+[7mdiff <(head -1000 /tmp/meu.txt) /tmp/oficial.txt | head -3[27m
+[7mtail -1 /tmp/meu.txt[27m
+[7mawk '{p=int($1/256); if(!(p in m)){f++; if(n<128){q[n]=p; n++} else {delete m[q[h]]; q[h]=p; h=(h+1)%128} m[p]=1}} END{print f}' testes/oficiais/addresses.txt[27m[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt > /tmp/meu.txt
+sed 's/ TLB: -\?[0-9]*//' testes/oficiais/correct.txt | head -1000 > /tmp/oficial.txt
+sed 's/ Physical address: [0-9]*//' /tmp/oficial.txt > /tmp/oficial_v.txt
+head -1000 /tmp/meu.txt | sed 's/ Physical address: [0-9]*//' | diff - /tmp/oficial_v.txt | head -5
+diff <(head -1000 /tmp/meu.txt) /tmp/oficial.txt | head -3
+tail -1 /tmp/meu.txt
+awk '{p=int($1/256); if(!(p in m)){f++; if(n<128){q[n]=p; n++} else {delete m[q[h]]; q[h]=p; h=(h+1)%128} m[p]=1}} END{print f}' testes/oficiais/addresses.txt
+[?2004l174c174
+< Virtual address: 2035 Physical address: 499 Value: -4
+---
+Page Faults = 538
+536
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mawk 'BEGIN{n=0;h=0;f=0} {p=int($1/256); if(!(p in m)){f++; if(n<128){q[n]=p; n++} else {delete m[q[h]]; q[h]=p; h=(h+1)%128} m[p]=1}} END{print f}' testes/oficiais/addresses.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cawk 'BEGIN{n=0;h=0;f=0} {p=int($1/256); if(!(p in m)){f++; if(n<128){q[n]=p; n++} else {delete m[q[h]]; q[h]=p; h=(h+1)%128} m[p]=1}} END{print f}' testes/oficiais/addresses.txt
+[?2004l538
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit add main.c[27m
+[7mgit commit -m "Substitui paginas com FIFO e 128 frames"[27m
+[7mgit --no-pager show --stat HEAD[27m[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git add main.c
+git commit -m "Substitui paginas com FIFO e 128 frames"
+git --no-pager show --stat HEAD
+[?2004l[main 834b418] Substitui paginas com FIFO e 128 frames
+ 1 file changed, 17 insertions(+), 1 deletion(-)
+[33mcommit 834b41805a93c4d6891d2dd197359c3d2e5a623d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 13:44:48 2026 -0300
+
+    Substitui paginas com FIFO e 128 frames
+
+ main.c | 18 [32m+++++++++++++++++[m[31m-[m
+ 1 file changed, 17 insertions(+), 1 deletion(-)
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ date
+[?2004lTue Nov 24 13:44:51 -03 2026
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ whj[K[Khoami
+[?2004lracarrilho
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ pwd
+[?2004l/home/racarrilho/dev/vm
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c[27m
+[7m./teste testes/oficiais/addresses.txt fifo | tail -1[27m
+[7m./teste testes/oficiais/addresses.txt lru | tail -1[27m
+[7mgit --no-pager log --oneline[27m[A[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ gcc -Wall -Wextra -o teste main.c
+./teste testes/oficiais/addresses.txt fifo | tail -1
+./teste testes/oficiais/addresses.txt lru | tail -1
+git --no-pager log --oneline
+[?2004lPage Faults = 538
+Page Faults = 539
+[33m834b418[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Substitui paginas com FIFO e 128 frames
+[33m19121a7[m Traduz para endereco fisico, le o valor e conta page faults com 256 frames
+[33mf3f382f[m Abre BACKING_STORE.bin e adiciona carregarPagina (ainda nao chamada no laco)
+[33m29da96a[m Estado inicial ainda, to lendo adresses.txt, calculo pagina e offset, e trato alguns erros
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt lru > /tmp/meu.txt[27m
+[7msed 's/ TLB: -\?[0-9]*//' testes/oficiais/correct.txt | head -1000 > /tmp/oficial.txt[27m
+[7mdiff <(head -1000 /tmp/meu.txt) /tmp/oficial.txt | head -5[27m
+[7mtail -1 /tmp/meu.txt[27m
+[7mawk 'BEGIN{t=0;f=0;c=0} {p=int($1/256); t++; if(p in last){last[p]=t} else {f++; if(c>=128){first=1; for(k in last){ if(first || last[k]<mv){vk=k; mv=last[k]; first=0}} delete last[vk]; c--} last[p]=t; c++}} END{print f}' testes/oficiais/addresses.txt[27m
+[7m./teste testes/oficiais/addresses.txt; echo "saida=$?"[27m
+[7m./teste testes/oficiais/addresses.txt xyz; echo "saida=$?"[27m[A[A[A[A[A[Agcc -Wall -Wextra -o teste main.c && ./teste testes/oficiais/addresses.txt lru > /tmp/meu.txt
+sed 's/ TLB: -\?[0-9]*//' testes/oficiais/correct.txt | head -1000 > /tmp/oficial.txt
+diff <(head -1000 /tmp/meu.txt) /tmp/oficial.txt | head -5
+tail -1 /tmp/meu.txt
+awk 'BEGIN{t=0;f=0;c=0} {p=int($1/256); t++; if(p in last){last[p]=t} else {f++; if(c>=128){first=1; for(k in last){ if(first || last[k]<mv){vk=k; mv=last[k]; first=0}} delete last[vk]; c--} last[p]=t; c++}} END{print f}' testes/oficiais/addresses.txt
+./teste testes/oficiais/addresses.txt; echo "saida=$?"
+./teste testes/oficiais/addresses.txt xyz; echo "saida=$?"
+[?2004lPage Faults = 539
+539
+Informe o arquivo de enderecos e o algoritmo
+saida=1
+Algoritmo invalido
+saida=1
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ date
+[?2004lTue Nov 24 17:50:30 -03 2026
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ whoami
+[?2004lracarrilho
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ pwd
+[?2004l/home/racarrilho/dev/vm
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit add main.c[27m
+[7mgit commit -m "Adiciona LRU de pagina e argumento do algoritmo"[27m
+[7mgit --no-pager show --stat HEAD[27m[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git add main.c
+git commit -m "Adiciona LRU de pagina e argumento do algoritmo"
+git --no-pager show --stat HEAD
+[?2004l[main 05d2e68] Adiciona LRU de pagina e argumento do algoritmo
+ 1 file changed, 31 insertions(+), 3 deletions(-)
+[33mcommit 05d2e685fb1704c12dd0d3c1db82b6beb1d417ca[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 17:50:49 2026 -0300
+
+    Adiciona LRU de pagina e argumento do algoritmo
+
+ main.c | 34 [32m+++++++++++++++++++++++++++++++[m[31m---[m
+ 1 file changed, 31 insertions(+), 3 deletions(-)
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mpgrep -a script[27mpgrep -a script
+[?2004l23600 script -af evidencias.log
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c[27m
+[7mgrep -n "framesTLB\[entrada\]\|proximaEntradaTLB > TLB_SIZE\|return proximaEntradaTLB" main.c[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -Wall -Wextra -o teste main.c
+grep -n "framesTLB\[entrada\]\|proximaEntradaTLB > TLB_SIZE\|return proximaEntradaTLB" main.c
+[?2004l[01m[Kmain.c:[m[K In function ‘[01m[KinserirTLB[m[K’:
+[01m[Kmain.c:95:32:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kframe[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-unused-parameter-Wunused-parameter]8;;[m[K]
+   95 | int inserirTLB(int pagina, [01;35m[Kint frame[m[K) {
+      |                            [01;35m[K~~~~^~~~~[m[K
+[32m[K100[m[K[36m[K:[m[K    [01;31m[KframesTLB[entrada][m[K = pagina;
+[32m[K104[m[K[36m[K:[m[K    if ([01;31m[KproximaEntradaTLB > TLB_SIZE[m[K) {
+[32m[K108[m[K[36m[K:[m[K    [01;31m[Kreturn proximaEntradaTLB[m[K;
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ grep -n "framesTLB\[entrada\]\|proximaEntradaTLB > TLB_SIZE\|return proximaEntradaTLB" main.c[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[60Pcc -Wall -Wextra -o teste[C[C[C[C[C[C[C
+[?2004l[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ gcc -Wall -Wextra -o teste main.c[60@rep -n "framesTLB\[entrada\]\|proximaEntradaTLB > TLB_SIZE\|return proximaEntradaTLB"[C[C[C[C[C[C[C
+[?2004l[32m[K100[m[K[36m[K:[m[K    [01;31m[KframesTLB[entrada][m[K = frame;
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c[27m
+[7m./teste testes/oficiais/addresses.txt fifo | tail -1[27m
+[7m./teste testes/oficiais/addresses.txt lru | tail -1[27m[A[Agcc -Wall -Wextra -o teste main.c
+./teste testes/oficiais/addresses.txt fifo | tail -1
+./teste testes/oficiais/addresses.txt lru | tail -1
+[?2004lPage Faults = 538
+Page Faults = 539
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c[27m
+[7m./teste testes/oficiais/addresses.txt lru fifo > /tmp/meu.txt[27m
+[7mtail -2 /tmp/meu.txt[27m
+[7mtail -5 testes/oficiais/correct.txt[27m
+[7mdiff <(head -1000 /tmp/meu.txt) <(head -1000 testes/oficiais/correct.txt) | head -10[27m[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -Wall -Wextra -o teste main.c
+./teste testes/oficiais/addresses.txt lru fifo > /tmp/meu.txt
+tail -2 /tmp/meu.txt
+tail -5 testes/oficiais/correct.txt
+diff <(head -1000 /tmp/meu.txt) <(head -1000 testes/oficiais/correct.txt) | head -10
+[?2004lPage Faults = 539
+TLB Hits = 54
+Number of Translated Addresses = 1000
+Page Faults = 539
+Page Fault Rate = 0.539
+TLB Hits = 54
+TLB Hit Rate = 0.054
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7m./teste testes/oficiais/addresses.txt fifo fifo | tail -2[27m
+[7m./teste testes/oficiais/addresses.txt lru lru; echo "saida=$?"[27m
+[7m./teste testes/oficiais/addresses.txt lru; echo "saida=$?"[27m[A[A./teste testes/oficiais/addresses.txt fifo fifo | tail -2
+./teste testes/oficiais/addresses.txt lru lru; echo "saida=$?"
+./teste testes/oficiais/addresses.txt lru; echo "saida=$?"
+[?2004lPage Faults = 538
+TLB Hits = 54
+Algoritmo da TLB invalido
+saida=1
+Informe o arquivo de enderecos e o algoritmo
+saida=1
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit add main.c[27m
+[7mgit commit -m "Liga a TLB FIFO ao laco e confere com o correct.txt (54 hits)"[27m
+[7mgit --no-pager show --stat HEAD[27m[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git add main.c
+git commit -m "Liga a TLB FIFO ao laco e confere com o correct.txt (54 hits)"
+git --no-pager show --stat HEAD
+[?2004l[main ef2d808] Liga a TLB FIFO ao laco e confere com o correct.txt (54 hits)
+ 1 file changed, 85 insertions(+), 21 deletions(-)
+[33mcommit ef2d80867241f1baeeb3ade52c2848dd689c3722[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 18:21:46 2026 -0300
+
+    Liga a TLB FIFO ao laco e confere com o correct.txt (54 hits)
+
+ main.c | 106 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m[31m---------------------[m
+ 1 file changed, 85 insertions(+), 21 deletions(-)
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgcc -Wall -Wextra -o teste main.c[27m
+[7m./teste testes/oficiais/addresses.txt lru fifo; echo "saida=$?"[27m
+[7mdiff correct.txt testes/oficiais/correct.txt && echo IGUAL[27m
+[7mls correct.txt*[27m
+[7mprintf 'abc\n' > /tmp/lixo.txt[27m
+[7m./teste /tmp/lixo.txt lru fifo; echo "saida=$?"[27m
+[7mprintf '16916\n-5\n' > /tmp/neg.txt[27m
+[7m./teste /tmp/neg.txt lru fifo; echo "saida=$?"[27m
+[7mls correct.txt*[27m[A[A[A[A[A[A[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ gcc -Wall -Wextra -o teste main.c
+./teste testes/oficiais/addresses.txt lru fifo; echo "saida=$?"
+diff correct.txt testes/oficiais/correct.txt && echo IGUAL
+ls correct.txt*
+printf 'abc\n' > /tmp/lixo.txt
+./teste /tmp/lixo.txt lru fifo; echo "saida=$?"
+printf '16916\n-5\n' > /tmp/neg.txt
+./teste /tmp/neg.txt lru fifo; echo "saida=$?"
+ls correct.txt*
+[?2004lsaida=0
+IGUAL
+correct.txt
+Arquivo invalido
+saida=1
+Endereco invalido
+saida=1
+correct.txt
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit add main.c[27m
+[7mgit commit -m "Grava a saida em correct.txt por arquivo temporario com resumo de 5 linhas"[27m
+[7mgit --no-pager show --stat HEAD[27m[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git add main.c
+git commit -m "Grava a saida em correct.txt por arquivo temporario com resumo de 5 linhas"
+git --no-pager show --stat HEAD
+[?2004l[main beaf6c6] Grava a saida em correct.txt por arquivo temporario com resumo de 5 linhas
+ 1 file changed, 49 insertions(+), 9 deletions(-)
+[33mcommit beaf6c6d30354e54ec6f5bf071543830a23fef24[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 18:33:59 2026 -0300
+
+    Grava a saida em correct.txt por arquivo temporario com resumo de 5 linhas
+
+ main.c | 58 [32m+++++++++++++++++++++++++++++++++++++++++++++++++[m[31m---------[m
+ 1 file changed, 49 insertions(+), 9 deletions(-)
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mcat -A .gitignore[27m
+[7mprintf 'correct.txt.tmp\n' >> .gitignore[27m
+[7mcat -A .gitignore[27m
+[7mgit add .gitignore[27m
+[7mgit commit -m "Ignora o temporario correct.txt.tmp"[27m[A[A[A[Acat -A .gitignore
+printf 'correct.txt.tmp\n' >> .gitignore
+cat -A .gitignore
+git add .gitignore
+git commit -m "Ignora o temporario correct.txt.tmp"
+[?2004lvm$
+*.o$
+testes/oficiais/$
+correct.txt$
+teste$
+vm$
+*.o$
+testes/oficiais/$
+correct.txt$
+teste$
+correct.txt.tmp$
+[main 802304b] Ignora o temporario correct.txt.tmp
+ 1 file changed, 1 insertion(+)
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit --no-pager show --stat HEAD[27mgit --no-pager show --stat HEAD
+[?2004l[33mcommit 802304b9a73962fff768146e2f0c4c58ca63536b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 18:34:04 2026 -0300
+
+    Ignora o temporario correct.txt.tmp
+
+ .gitignore | 1 [32m+[m
+ 1 file changed, 1 insertion(+)
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mmake clean && make[27m
+[7m./vm testes/oficiais/addresses.txt lru fifo[27m
+[7mdiff correct.txt testes/oficiais/correct.txt && echo IGUAL[27m[A[Amake clean && make
+./vm testes/oficiais/addresses.txt lru fifo
+diff correct.txt testes/oficiais/correct.txt && echo IGUAL
+[?2004lrm -f vm
+gcc -pthread -Wall -Wextra -std=c11 main.c -o vm
+IGUAL
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ date
+[?2004lTue Nov 24 18:47:46 -03 2026
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mcd ~/dev/vm[27m
+[7mgit config --local user.name; git config --local user.email[27m
+[7mgit status -sb[27m
+[7mgit diff --stat main.c[27m
+[7mwc -l README.md[27m
+[7msha256sum README.md[27m
+[7mcat -A Makefile[27m[A[A[A[A[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ cd ~/dev/vm
+git config --local user.name; git config --local user.email
+git status -sb
+git diff --stat main.c
+wc -l README.md
+sha256sum README.md
+cat -A Makefile
+[?2004lRafaCarrilho
+rac4@cesar.school
+## [32mmain[m
+ [31mM[m main.c
+[31m??[m Makefile
+[31m??[m "README (2).md:Zone.Identifier"
+[31m??[m README.md
+[31m??[m evidencias.log
+[31m??[m evidencias_ambiente.log
+[?1h= main.c | 42 [32m+++++++++++++++++++++++++++++++++[m[31m---------[m[m
+ 1 file changed, 33 insertions(+), 9 deletions(-)[m
+[K[?1l>90 README.md
+11ee3020ba7bdefd306a4cb64844782b33e39182102b73d959a5f567a5af1703  README.md
+.PHONY: clean$
+vm: main.c$
+^Igcc -pthread -Wall -Wextra -std=c11 main.c -o vm$
+$
+clean:$
+^Irm -f vm[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit add Makefile README.md[27m
+[7mgit diff --cached --stat[27m[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git add Makefile README.md
+git diff --cached --stat
+[?2004l[?1h= Makefile  |  6 [32m++++++[m[m
+ README.md | 90 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m[m
+ 2 files changed, 96 insertions(+)[m
+[K[?1l>[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit commit -m "Adiciona Makefile e README"[27m
+[7mgit --no-pager show --stat HEAD[27m[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git commit -m "Adiciona Makefile e README"
+git --no-pager show --stat HEAD
+[?2004l[main fe07faa] Adiciona Makefile e README
+ 2 files changed, 96 insertions(+)
+ create mode 100644 Makefile
+ create mode 100644 README.md
+[33mcommit fe07faa3f2a5a4f972d42d4aa1eb4156d5307cdc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 19:02:18 2026 -0300
+
+    Adiciona Makefile e README
+
+ Makefile  |  6 [32m++++++[m
+ README.md | 90 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ 2 files changed, 96 insertions(+)
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mrm -- "README (2).md:Zone.Identifier"[27mrm -- "README (2).md:Zone.Identifier"
+[?2004l[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mmake clean && make[27m
+[7m./vm testes/oficiais/addresses.txt lru fifo; echo "saida=$?"[27m
+[7mdiff correct.txt testes/oficiais/correct.txt && echo IGUAL[27m
+[7mgrep -E "Page Faults =|TLB Hits =" correct.txt[27m
+[7m./vm testes/oficiais/addresses.txt fifo fifo; echo "saida=$?"[27m
+[7mgrep -E "Page Faults =|TLB Hits =" correct.txt[27m[A[A[A[A[Amake clean && make
+./vm testes/oficiais/addresses.txt lru fifo; echo "saida=$?"
+diff correct.txt testes/oficiais/correct.txt && echo IGUAL
+grep -E "Page Faults =|TLB Hits =" correct.txt
+./vm testes/oficiais/addresses.txt fifo fifo; echo "saida=$?"
+grep -E "Page Faults =|TLB Hits =" correct.txt
+[?2004lrm -f vm
+gcc -pthread -Wall -Wextra -std=c11 main.c -o vm
+saida=0
+IGUAL
+[01;31m[KPage Faults =[m[K 539
+[01;31m[KTLB Hits =[m[K 54
+saida=0
+[01;31m[KPage Faults =[m[K 538
+[01;31m[KTLB Hits =[m[K 54
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [H[2J]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ awk -v pag=lru '
+BEGIN{for(i=0;i<16;i++){tp[i]=-1;tf[i]=-1;tl[i]=-1}
+      for(f=0;f<128;f++){fp[f]=-1;la[f]=-1}
+      nxt=0;pf=0;hits=0;n=0}
+{ a=$1; p=int(a/256); e=-1
+  for(i=0;i<16;i++) if(tp[i]==p){e=i;break}
+  if(e>=0){f=tf[e];hits++}
+[7m  else{[27m
+[7m    if(!(p in pt)){[27m
+[7m      if(pag=="lru" && pf>=128){v=0;for(g=1;g<128;g++) if(la[g]<la[v]) v=g}[27m
+[7m      else v=nxt[27m
+[7m      old=fp[v][27m
+[7m      if(old!=-1){delete pt[old][27m
+[7m        for(i=0;i<16;i++) if(tp[i]==old){tp[i]=-1;tf[i]=-1}}[27m
+[7m      pt[p]=v;fp[v]=p;nxt=(nxt+1)%128;pf++[27m
+[7m    }[27m
+[7m    f=pt[p]; e=-1[27m
+[7m    for(i=0;i<16;i++) if(tp[i]==-1){e=i;break}[27m
+[7m    if(e<0){e=0;for(i=1;i<16;i++) if(tl[i]<tl[e]) e=i}[27m
+[7m    tp[e]=p;tf[e]=f[27m
+[7m  }[27m
+[7m  tl[e]=n;la[f]=n;n++[27m
+[7m  print a, e > "/tmp/sim_tlb.txt"[27m
+[7m}[27m
+[7mEND{print pf, hits > "/tmp/sim_tot.txt"}' testes/oficiais/addresses.txt[27m[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A  else{
+    if(!(p in pt)){
+      if(pag=="lru" && pf>=128){v=0;for(g=1;g<128;g++) if(la[g]<la[v]) v=g}
+      else v=nxt
+      old=fp[v]
+      if(old!=-1){delete pt[old]
+        for(i=0;i<16;i++) if(tp[i]==old){tp[i]=-1;tf[i]=-1}}
+      pt[p]=v;fp[v]=p;nxt=(nxt+1)%128;pf++
+    }
+    f=pt[p]; e=-1
+    for(i=0;i<16;i++) if(tp[i]==-1){e=i;break}
+    if(e<0){e=0;for(i=1;i<16;i++) if(tl[i]<tl[e]) e=i}
+    tp[e]=p;tf[e]=f
+  }
+  tl[e]=n;la[f]=n;n++
+  print a, e > "/tmp/sim_tlb.txt"
+}
+END{print pf, hits > "/tmp/sim_tot.txt"}' testes/oficiais/addresses.txt
+[?2004l[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [H[2J]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ awk -v pag=lru '
+BEGIN{for(i=0;i<16;i++){tp[i]=-1;tf[i]=-1;tl[i]=-1}
+      for(f=0;f<128;f++){fp[f]=-1;la[f]=-1}
+      nxt=0;pf=0;hits=0;n=0}
+{ a=$1; p=int(a/256); e=-1
+  for(i=0;i<16;i++) if(tp[i]==p){e=i;break}
+  if(e>=0){f=tf[e];hits++}
+  else{
+    if(!(p in pt)){
+      if(pag=="lru" && pf>=128){v=0;for(g=1;g<128;g++) if(la[g]<la[v]) v=g}
+      else v=nxt
+      old=fp[v]
+      if(old!=-1){delete pt[old]
+[7m        for(i=0;i<16;i++) if(tp[i]==old){tp[i]=-1;tf[i]=-1}}[27m
+[7m      pt[p]=v;fp[v]=p;nxt=(nxt+1)%128;pf++[27m
+[7m    }[27m
+[7m    f=pt[p]; e=-1[27m
+[7m    for(i=0;i<16;i++) if(tp[i]==-1){e=i;break}[27m
+[7m    if(e<0){e=0;for(i=1;i<16;i++) if(tl[i]<tl[e]) e=i}[27m
+[7m    tp[e]=p;tf[e]=f[27m
+[7m  }[27m
+[7m  tl[e]=n;la[f]=n;n++[27m
+[7m  print a, e > "/tmp/sim_tlb.txt"[27m
+[7m}[27m
+[7mEND{print pf, hits > "/tmp/sim_tot.txt"}' testes/oficiais/addresses.txt[27m
+
+[7m./vm testes/oficiais/addresses.txt lru lru; echo "saida=$?"[27m
+[7mgrep '^Virtual' correct.txt | awk '{print $3, $5}' > /tmp/real_tlb.txt[27m
+[7mdiff /tmp/sim_tlb.txt /tmp/real_tlb.txt && echo TLB_IGUAL[27m
+[7mcat /tmp/sim_tot.txt[27m
+[7mgrep -E "Page Faults =|TLB Hits =" correct.txt[27m[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A        for(i=0;i<16;i++) if(tp[i]==old){tp[i]=-1;tf[i]=-1}}
+      pt[p]=v;fp[v]=p;nxt=(nxt+1)%128;pf++
+    }
+    f=pt[p]; e=-1
+    for(i=0;i<16;i++) if(tp[i]==-1){e=i;break}
+    if(e<0){e=0;for(i=1;i<16;i++) if(tl[i]<tl[e]) e=i}
+    tp[e]=p;tf[e]=f
+  }
+  tl[e]=n;la[f]=n;n++
+  print a, e > "/tmp/sim_tlb.txt"
+}
+END{print pf, hits > "/tmp/sim_tot.txt"}' testes/oficiais/addresses.txt
+
+./vm testes/oficiais/addresses.txt lru lru; echo "saida=$?"
+grep '^Virtual' correct.txt | awk '{print $3, $5}' > /tmp/real_tlb.txt
+diff /tmp/sim_tlb.txt /tmp/real_tlb.txt && echo TLB_IGUAL
+cat /tmp/sim_tot.txt
+grep -E "Page Faults =|TLB Hits =" correct.txt
+[?2004lsaida=0
+TLB_IGUAL
+539 55
+[01;31m[KPage Faults =[m[K 539
+[01;31m[KTLB Hits =[m[K 55
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7m./vm testes/oficiais/addresses.txt fifo lru; echo "saida=$?"[27m
+[7mgrep '^Virtual' correct.txt | awk '{print $3, $5}' > /tmp/real_tlb.txt[27m
+[7mdiff /tmp/sim_tlb.txt /tmp/real_tlb.txt && echo TLB_IGUAL[27m
+[7mcat /tmp/sim_tot.txt[27m
+[7mgrep -E "Page Faults =|TLB Hits =" correct.txt[27m[A[A[A[A./vm testes/oficiais/addresses.txt fifo lru; echo "saida=$?"
+grep '^Virtual' correct.txt | awk '{print $3, $5}' > /tmp/real_tlb.txt
+diff /tmp/sim_tlb.txt /tmp/real_tlb.txt && echo TLB_IGUAL
+cat /tmp/sim_tot.txt
+grep -E "Page Faults =|TLB Hits =" correct.txt
+[?2004lsaida=0
+205,209c205,209
+< 19810 12
+< 25955 7
+< 62678 9
+< 26021 7
+< 29409 8
+---
+> 19810 8
+> 25955 12
+> 62678 7
+> 26021 12
+> 29409 9
+223,226c223,226
+< 21205 12
+< 56181 9
+< 57470 7
+< 39933 8
+---
+> 21205 8
+> 56181 7
+> 57470 12
+> 39933 9
+239,242c239,242
+< 11149 12
+< 38920 9
+< 23430 7
+< 57592 8
+---
+> 11149 8
+> 38920 7
+> 23430 12
+> 57592 9
+244,246c244,246
+< 6677 11
+< 50704 3
+< 51883 0
+---
+> 6677 15
+> 50704 11
+> 51883 3
+248,250c248,250
+< 20188 10
+< 1245 13
+< 12220 15
+---
+> 20188 0
+> 1245 10
+> 12220 13
+255,258c255,258
+< 13827 12
+< 27336 9
+< 53343 7
+< 11533 8
+---
+> 13827 8
+> 27336 7
+> 53343 12
+> 11533 9
+260,262c260,262
+< 33890 11
+< 4894 3
+< 57599 0
+---
+> 33890 15
+> 4894 11
+> 57599 3
+264c264
+< 58622 10
+---
+> 58622 0
+266,267c266,267
+< 62553 13
+< 2303 15
+---
+> 62553 10
+> 2303 13
+271,274c271,274
+< 59325 12
+< 61295 9
+< 26699 7
+< 51188 8
+---
+> 59325 8
+> 61295 7
+> 26699 12
+> 51188 9
+276,278c276,278
+< 7345 11
+< 20325 3
+< 39633 0
+---
+> 7345 15
+> 20325 11
+> 39633 3
+280c280
+< 7580 10
+---
+> 7580 0
+282,283c282,283
+< 62256 13
+< 35823 15
+---
+> 62256 10
+> 35823 13
+287,288c287,288
+< 7477 10
+< 44455 12
+---
+> 7477 0
+> 44455 8
+290,295c290,295
+< 49347 9
+< 36539 7
+< 12453 8
+< 49640 11
+< 28290 3
+< 44817 0
+---
+> 49347 7
+> 36539 12
+> 12453 9
+> 49640 15
+> 28290 11
+> 44817 3
+298,299c298,299
+< 41934 13
+< 45457 15
+---
+> 41934 10
+> 45457 13
+303,304c303,304
+< 63829 10
+< 42034 12
+---
+> 63829 0
+> 42034 8
+306c306
+< 30711 9
+---
+> 30711 14
+308,311c308,311
+< 52335 8
+< 38775 11
+< 52704 3
+< 24380 0
+---
+> 52335 12
+> 38775 9
+> 52704 15
+> 24380 11
+313,322c313,322
+< 57998 4
+< 2919 5
+< 8362 13
+< 17884 15
+< 45737 1
+< 47894 6
+< 59667 10
+< 10385 12
+< 52782 14
+< 64416 9
+---
+> 57998 3
+> 2919 4
+> 8362 5
+> 17884 10
+> 45737 13
+> 47894 1
+> 59667 6
+> 10385 0
+> 52782 8
+> 64416 14
+324,327c324,327
+< 16778 8
+< 27159 11
+< 24324 0
+< 32450 3
+---
+> 16778 12
+> 27159 9
+> 24324 11
+> 32450 15
+329,338c329,338
+< 65305 4
+< 19575 5
+< 11117 13
+< 65170 15
+< 58013 1
+< 61676 6
+< 63510 10
+< 17458 12
+< 54675 14
+< 1713 9
+---
+> 65305 3
+> 19575 4
+> 11117 5
+> 65170 10
+> 58013 13
+> 61676 1
+> 63510 6
+> 17458 0
+> 54675 8
+> 1713 14
+340,348c340,348
+< 65321 4
+< 45278 8
+< 26256 11
+< 64198 0
+< 29441 3
+< 1928 2
+< 39425 5
+< 32000 13
+< 28549 15
+---
+> 65321 3
+> 45278 12
+> 26256 9
+> 64198 11
+> 29441 4
+> 1928 15
+> 39425 2
+> 32000 5
+> 28549 10
+350,353c350,353
+< 22772 6
+< 58228 10
+< 63525 12
+< 32602 14
+---
+> 22772 13
+> 58228 6
+> 63525 0
+> 32602 8
+355c355
+< 55849 9
+---
+> 55849 14
+357,370c357,370
+< 7487 4
+< 33879 8
+< 42004 11
+< 8599 0
+< 18641 3
+< 49015 2
+< 26830 5
+< 34754 13
+< 14668 15
+< 38362 6
+< 38791 10
+< 4171 12
+< 45975 14
+< 14623 15
+---
+> 7487 3
+> 33879 12
+> 42004 9
+> 8599 11
+> 18641 4
+> 49015 15
+> 26830 2
+> 34754 5
+> 14668 10
+> 38362 13
+> 38791 6
+> 4171 0
+> 45975 8
+> 14623 10
+372c372
+< 64658 9
+---
+> 64658 14
+374,386c374,386
+< 9058 4
+< 51031 8
+< 32425 11
+< 45483 0
+< 44611 3
+< 63664 2
+< 54920 5
+< 7663 13
+< 56480 6
+< 1489 10
+< 28438 12
+< 65449 14
+< 12441 15
+---
+> 9058 3
+> 51031 12
+> 32425 9
+> 45483 11
+> 44611 4
+> 63664 15
+> 54920 2
+> 7663 5
+> 56480 13
+> 1489 6
+> 28438 0
+> 65449 8
+> 12441 10
+388,445c388,445
+< 63570 2
+< 26251 9
+< 15972 7
+< 35826 4
+< 5491 8
+< 54253 11
+< 49655 0
+< 5868 3
+< 20163 5
+< 51079 13
+< 21398 6
+< 32756 10
+< 64196 12
+< 43218 14
+< 21583 15
+< 25086 1
+< 45515 2
+< 12893 9
+< 22914 7
+< 58969 4
+< 20094 5
+< 13730 8
+< 44059 11
+< 28931 0
+< 13533 3
+< 33134 13
+< 28483 6
+< 1220 10
+< 38174 12
+< 53502 14
+< 43328 15
+< 4970 1
+< 8090 2
+< 2661 9
+< 53903 7
+< 11025 4
+< 26627 5
+< 18117 8
+< 14505 11
+< 61528 0
+< 20423 3
+< 26962 13
+< 36392 6
+< 11365 10
+< 50882 12
+< 41668 14
+< 30497 15
+< 36216 1
+< 5619 2
+< 36983 9
+< 59557 7
+< 36663 4
+< 36436 6
+< 37057 9
+< 23585 5
+< 58791 8
+< 46666 11
+< 64475 0
+---
+> 63570 15
+> 26251 14
+> 15972 0
+> 35826 7
+> 5491 15
+> 54253 3
+> 49655 12
+> 5868 9
+> 20163 11
+> 51079 4
+> 21398 2
+> 32756 5
+> 64196 13
+> 43218 6
+> 21583 8
+> 25086 10
+> 45515 1
+> 12893 14
+> 22914 0
+> 58969 14
+> 20094 11
+> 13730 7
+> 44059 15
+> 28931 3
+> 13533 12
+> 33134 9
+> 28483 4
+> 1220 2
+> 38174 5
+> 53502 13
+> 43328 6
+> 4970 8
+> 8090 10
+> 2661 1
+> 53903 0
+> 11025 14
+> 26627 11
+> 18117 7
+> 14505 15
+> 61528 3
+> 20423 12
+> 26962 10
+> 36392 9
+> 11365 4
+> 50882 2
+> 41668 5
+> 30497 13
+> 36216 6
+> 5619 8
+> 36983 1
+> 59557 0
+> 36663 14
+> 36436 9
+> 37057 1
+> 23585 11
+> 58791 14
+> 46666 7
+> 64475 15
+447c447
+< 41090 13
+---
+> 41090 12
+449,472c449,472
+< 47513 12
+< 39338 14
+< 1390 15
+< 38772 1
+< 58149 2
+< 7196 7
+< 9123 4
+< 7491 6
+< 62616 9
+< 15436 5
+< 17491 8
+< 53656 11
+< 26449 0
+< 34935 3
+< 19864 13
+< 51388 10
+< 15155 12
+< 64775 14
+< 47969 15
+< 16315 1
+< 1342 2
+< 51185 7
+< 6043 4
+< 21398 6
+---
+> 47513 4
+> 39338 2
+> 1390 5
+> 38772 13
+> 58149 6
+> 7196 8
+> 9123 0
+> 7491 9
+> 62616 1
+> 15436 11
+> 17491 14
+> 53656 7
+> 26449 15
+> 34935 7
+> 19864 3
+> 51388 12
+> 15155 10
+> 64775 4
+> 47969 2
+> 16315 5
+> 1342 13
+> 51185 6
+> 6043 8
+> 21398 0
+474,480c474,480
+< 9370 5
+< 35463 8
+< 28205 11
+< 2351 0
+< 28999 3
+< 47699 13
+< 46870 10
+---
+> 9370 1
+> 35463 11
+> 28205 14
+> 2351 15
+> 28999 7
+> 47699 9
+> 46870 3
+482c482
+< 22124 14
+---
+> 22124 10
+484,498c484,498
+< 49344 15
+< 23224 1
+< 5514 2
+< 20504 7
+< 376 4
+< 2014 6
+< 38700 9
+< 13098 5
+< 62435 8
+< 48046 11
+< 63464 0
+< 12798 3
+< 51178 13
+< 8627 10
+< 27083 14
+---
+> 49344 4
+> 23224 2
+> 5514 5
+> 20504 13
+> 376 6
+> 2014 8
+> 38700 0
+> 13098 1
+> 62435 11
+> 48046 14
+> 63464 15
+> 12798 7
+> 51178 9
+> 8627 3
+> 27083 10
+500,509c500,509
+< 44021 15
+< 32792 1
+< 43996 15
+< 41126 2
+< 64244 7
+< 37047 4
+< 60281 6
+< 52904 9
+< 7768 5
+< 55359 8
+---
+> 44021 4
+> 32792 2
+> 43996 4
+> 41126 5
+> 64244 13
+> 37047 6
+> 60281 8
+> 52904 0
+> 7768 9
+> 55359 1
+511,515c511,515
+< 44813 0
+< 4116 3
+< 65222 13
+< 28083 10
+< 60660 14
+---
+> 44813 14
+> 4116 15
+> 65222 7
+> 28083 3
+> 60660 10
+517,525c517,525
+< 328 1
+< 47868 15
+< 13009 2
+< 22378 7
+< 39304 4
+< 11171 6
+< 8079 9
+< 52879 5
+< 5123 8
+---
+> 328 2
+> 47868 4
+> 13009 5
+> 22378 13
+> 39304 6
+> 11171 8
+> 8079 0
+> 52879 9
+> 5123 1
+527,531c527,531
+< 45745 0
+< 32952 3
+< 4657 13
+< 24142 10
+< 23319 14
+---
+> 45745 14
+> 32952 15
+> 4657 7
+> 24142 3
+> 23319 10
+533,541c533,541
+< 46304 1
+< 17677 15
+< 59691 2
+< 50967 7
+< 7817 4
+< 8545 6
+< 55297 9
+< 52954 5
+< 39720 8
+---
+> 46304 2
+> 17677 4
+> 59691 5
+> 50967 13
+> 7817 6
+> 8545 8
+> 55297 0
+> 52954 9
+> 39720 1
+543,547c543,547
+< 30349 0
+< 63270 3
+< 27156 13
+< 20614 10
+< 19372 14
+---
+> 30349 14
+> 63270 15
+> 27156 7
+> 20614 3
+> 19372 10
+549,557c549,557
+< 49386 1
+< 50584 15
+< 51936 2
+< 34705 7
+< 13653 4
+< 50077 6
+< 54518 9
+< 41482 5
+< 4169 8
+---
+> 49386 2
+> 50584 4
+> 51936 5
+> 34705 13
+> 13653 6
+> 50077 8
+> 54518 0
+> 41482 9
+> 4169 1
+559,563c559,563
+< 9584 0
+< 18490 3
+< 55420 13
+< 5708 10
+< 23506 14
+---
+> 9584 14
+> 18490 15
+> 55420 7
+> 5708 3
+> 23506 10
+565,573c565,573
+< 36368 1
+< 38976 15
+< 50406 2
+< 49236 7
+< 65035 4
+< 30120 6
+< 62551 9
+< 46809 5
+< 21687 8
+---
+> 36368 2
+> 38976 4
+> 50406 5
+> 49236 13
+> 65035 6
+> 30120 8
+> 62551 0
+> 46809 9
+> 21687 1
+575,579c575,579
+< 2098 0
+< 12364 3
+< 45366 13
+< 50437 10
+< 36675 14
+---
+> 2098 14
+> 12364 15
+> 45366 7
+> 50437 3
+> 36675 10
+581,589c581,589
+< 11846 1
+< 49127 15
+< 19900 2
+< 20554 7
+< 19219 4
+< 51483 6
+< 58090 9
+< 39074 5
+< 16060 8
+---
+> 11846 2
+> 49127 4
+> 19900 5
+> 20554 13
+> 19219 6
+> 51483 8
+> 58090 0
+> 39074 9
+> 16060 1
+591,596c591,596
+< 54169 0
+< 20634 7
+< 57555 3
+< 61210 13
+< 269 10
+< 33154 14
+---
+> 54169 14
+> 20634 13
+> 57555 15
+> 61210 7
+> 269 3
+> 33154 10
+598,606c598,606
+< 61223 13
+< 47292 1
+< 21852 15
+< 5281 2
+< 45912 4
+< 32532 6
+< 63067 9
+< 41683 5
+< 20981 8
+---
+> 61223 7
+> 47292 2
+> 21852 4
+> 5281 5
+> 45912 6
+> 32532 8
+> 63067 0
+> 41683 9
+> 20981 1
+608,618c608,618
+< 41785 0
+< 4580 7
+< 41389 3
+< 28572 10
+< 782 14
+< 30273 12
+< 62267 13
+< 17922 1
+< 63238 15
+< 3308 2
+< 26545 4
+---
+> 41785 8
+> 4580 14
+> 41389 13
+> 28572 15
+> 782 3
+> 30273 10
+> 62267 12
+> 17922 7
+> 63238 2
+> 3308 4
+> 26545 5
+620,623c620,623
+< 39120 9
+< 21706 5
+< 7144 8
+< 30244 12
+---
+> 39120 0
+> 21706 9
+> 7144 1
+> 30244 10
+625,634c625,634
+< 54632 0
+< 30574 7
+< 8473 3
+< 12386 10
+< 41114 14
+< 57930 13
+< 15341 1
+< 15598 15
+< 59922 2
+< 18226 4
+---
+> 54632 8
+> 30574 14
+> 8473 13
+> 12386 15
+> 41114 3
+> 57930 12
+> 15341 7
+> 15598 2
+> 59922 4
+> 18226 5
+636,639c636,639
+< 41250 9
+< 1512 5
+< 2546 8
+< 41682 12
+---
+> 41250 0
+> 1512 9
+> 2546 1
+> 41682 10
+641,648c641,648
+< 880 0
+< 20891 7
+< 56604 3
+< 40166 10
+< 26791 14
+< 44560 13
+< 38698 1
+< 64127 15
+---
+> 880 8
+> 20891 14
+> 56604 13
+> 40166 15
+> 26791 3
+> 44560 9
+> 38698 12
+> 64127 7
+650c650
+< 38669 1
+---
+> 38669 12
+652,656c652,656
+< 43151 6
+< 9465 9
+< 2498 8
+< 13978 5
+< 16326 12
+---
+> 43151 5
+> 9465 6
+> 2498 1
+> 13978 0
+> 16326 10
+658,672c658,672
+< 34845 0
+< 63667 7
+< 39370 3
+< 55671 10
+< 64496 14
+< 7767 13
+< 6283 15
+< 55884 2
+< 61103 1
+< 10184 4
+< 39543 6
+< 9555 9
+< 13963 5
+< 58975 8
+< 19537 12
+---
+> 34845 8
+> 63667 14
+> 39370 13
+> 55671 5
+> 64496 15
+> 7767 3
+> 6283 9
+> 55884 7
+> 61103 2
+> 10184 12
+> 39543 4
+> 9555 6
+> 13963 0
+> 58975 1
+> 19537 10
+674,688c674,688
+< 41421 0
+< 45502 7
+< 29328 3
+< 8149 10
+< 25450 14
+< 58944 8
+< 50666 13
+< 23084 15
+< 36468 2
+< 33645 1
+< 25002 4
+< 53715 6
+< 60173 9
+< 46354 5
+< 4708 12
+---
+> 41421 8
+> 45502 14
+> 29328 13
+> 8149 5
+> 25450 15
+> 58944 1
+> 50666 3
+> 23084 9
+> 36468 7
+> 33645 2
+> 25002 12
+> 53715 4
+> 60173 6
+> 46354 0
+> 4708 10
+690,704c690,704
+< 58844 0
+< 22173 7
+< 8535 3
+< 42261 10
+< 29687 14
+< 37799 8
+< 22566 13
+< 62520 15
+< 4098 2
+< 47999 1
+< 49660 4
+< 37063 6
+< 41856 9
+< 5417 5
+< 48856 12
+---
+> 58844 8
+> 22173 14
+> 8535 13
+> 42261 5
+> 29687 15
+> 37799 1
+> 22566 3
+> 62520 9
+> 4098 7
+> 47999 2
+> 49660 12
+> 37063 4
+> 41856 6
+> 5417 0
+> 48856 10
+706,789c706,789
+< 22370 0
+< 63281 7
+< 62452 3
+< 50532 10
+< 9022 14
+< 59300 8
+< 58660 13
+< 56401 15
+< 8518 2
+< 63066 1
+< 63250 7
+< 48592 4
+< 28771 6
+< 37673 9
+< 60776 5
+< 56438 15
+< 60424 12
+< 39993 11
+< 56004 0
+< 59002 3
+< 33982 10
+< 25498 14
+< 57047 8
+< 1401 13
+< 15130 2
+< 42960 1
+< 61827 7
+< 32442 4
+< 64304 6
+< 30273 9
+< 38082 5
+< 22404 15
+< 3808 12
+< 16883 11
+< 23111 0
+< 62417 3
+< 60364 10
+< 4542 14
+< 14829 8
+< 44964 13
+< 33924 2
+< 2141 1
+< 19245 7
+< 47168 4
+< 24048 6
+< 1022 9
+< 23075 0
+< 24888 5
+< 49247 15
+< 4900 12
+< 22656 11
+< 34117 3
+< 55555 10
+< 48947 14
+< 59533 8
+< 21312 13
+< 21415 13
+< 813 9
+< 19419 7
+< 1999 2
+< 20155 1
+< 21521 4
+< 13670 6
+< 19289 7
+< 58483 0
+< 41318 5
+< 16151 15
+< 13611 6
+< 21514 4
+< 13499 12
+< 45583 11
+< 49013 14
+< 64843 3
+< 63485 10
+< 38697 8
+< 59188 13
+< 24593 9
+< 57641 2
+< 36524 1
+< 56980 7
+< 36810 0
+< 6096 5
+< 11070 15
+< 60124 6
+---
+> 22370 8
+> 63281 14
+> 62452 4
+> 50532 13
+> 9022 5
+> 59300 15
+> 58660 1
+> 56401 1
+> 8518 3
+> 63066 9
+> 63250 14
+> 48592 7
+> 28771 2
+> 37673 12
+> 60776 6
+> 56438 1
+> 60424 0
+> 39993 10
+> 56004 11
+> 59002 8
+> 33982 4
+> 25498 13
+> 57047 5
+> 1401 15
+> 15130 3
+> 42960 9
+> 61827 14
+> 32442 7
+> 64304 2
+> 30273 12
+> 38082 6
+> 22404 1
+> 3808 0
+> 16883 10
+> 23111 11
+> 62417 8
+> 60364 4
+> 4542 13
+> 14829 5
+> 44964 3
+> 33924 15
+> 2141 9
+> 19245 14
+> 47168 7
+> 24048 2
+> 1022 12
+> 23075 11
+> 24888 6
+> 49247 1
+> 4900 0
+> 22656 10
+> 34117 8
+> 55555 4
+> 48947 13
+> 59533 5
+> 21312 3
+> 21415 3
+> 813 12
+> 19419 14
+> 1999 15
+> 20155 9
+> 21521 7
+> 13670 2
+> 19289 14
+> 58483 11
+> 41318 6
+> 16151 1
+> 13611 2
+> 21514 7
+> 13499 0
+> 45583 10
+> 49013 13
+> 64843 8
+> 63485 4
+> 38697 5
+> 59188 3
+> 24593 12
+> 57641 15
+> 36524 9
+> 56980 14
+> 36810 11
+> 6096 6
+> 11070 1
+> 60124 2
+791,891c791,891
+< 15096 12
+< 45247 11
+< 32783 14
+< 58390 3
+< 60873 10
+< 23719 8
+< 24385 13
+< 22307 9
+< 17375 2
+< 15990 1
+< 20526 7
+< 25904 0
+< 42224 5
+< 9311 15
+< 7862 6
+< 3835 4
+< 30535 12
+< 65179 11
+< 57387 14
+< 63579 3
+< 4946 10
+< 9037 8
+< 61033 13
+< 55543 9
+< 50361 2
+< 6480 1
+< 14042 7
+< 21531 0
+< 39195 5
+< 37511 15
+< 23696 6
+< 27440 4
+< 28201 12
+< 23072 11
+< 7814 14
+< 6552 1
+< 43637 3
+< 35113 10
+< 34890 8
+< 61297 13
+< 45633 9
+< 61431 13
+< 46032 2
+< 18774 7
+< 62991 0
+< 28059 5
+< 35229 10
+< 51230 15
+< 14405 6
+< 52242 4
+< 43153 12
+< 2709 11
+< 47963 14
+< 36943 1
+< 54066 3
+< 10054 8
+< 43051 12
+< 11525 9
+< 17684 13
+< 41681 2
+< 27883 7
+< 56909 0
+< 45772 5
+< 27496 10
+< 46842 15
+< 38734 6
+< 28972 4
+< 59684 11
+< 11384 14
+< 21018 1
+< 2192 3
+< 18384 8
+< 13464 12
+< 31018 9
+< 62958 13
+< 30611 2
+< 1913 7
+< 18904 0
+< 26773 5
+< 55491 10
+< 21899 15
+< 64413 6
+< 47134 4
+< 23172 11
+< 7262 14
+< 12705 1
+< 7522 3
+< 58815 8
+< 34916 12
+< 3802 9
+< 58008 13
+< 1239 2
+< 63947 7
+< 381 0
+< 60734 5
+< 48769 10
+< 41938 15
+< 38025 6
+< 55099 4
+< 56691 11
+< 39530 14
+---
+> 15096 7
+> 45247 0
+> 32783 10
+> 58390 13
+> 60873 8
+> 23719 5
+> 24385 3
+> 22307 10
+> 17375 12
+> 15990 15
+> 20526 9
+> 25904 14
+> 42224 11
+> 9311 6
+> 7862 1
+> 3835 2
+> 30535 4
+> 65179 7
+> 57387 0
+> 63579 13
+> 4946 8
+> 9037 5
+> 61033 3
+> 55543 10
+> 50361 12
+> 6480 15
+> 14042 9
+> 21531 14
+> 39195 11
+> 37511 6
+> 23696 1
+> 27440 2
+> 28201 4
+> 23072 7
+> 7814 0
+> 6552 15
+> 43637 13
+> 35113 8
+> 34890 5
+> 61297 3
+> 45633 10
+> 61431 3
+> 46032 12
+> 18774 9
+> 62991 14
+> 28059 11
+> 35229 8
+> 51230 6
+> 14405 1
+> 52242 2
+> 43153 4
+> 2709 7
+> 47963 0
+> 36943 15
+> 54066 13
+> 10054 5
+> 43051 4
+> 11525 10
+> 17684 3
+> 41681 12
+> 27883 9
+> 56909 14
+> 45772 11
+> 27496 8
+> 46842 6
+> 38734 1
+> 28972 2
+> 59684 7
+> 11384 0
+> 21018 15
+> 2192 13
+> 18384 5
+> 13464 4
+> 31018 10
+> 62958 3
+> 30611 12
+> 1913 9
+> 18904 14
+> 26773 11
+> 55491 8
+> 21899 6
+> 64413 1
+> 47134 2
+> 23172 7
+> 7262 1
+> 12705 6
+> 7522 0
+> 58815 15
+> 34916 13
+> 3802 5
+> 58008 4
+> 1239 10
+> 63947 3
+> 381 12
+> 60734 9
+> 48769 14
+> 41938 11
+> 38025 8
+> 55099 5
+> 56691 2
+> 39530 7
+893,907c893,907
+< 6029 3
+< 20920 8
+< 8077 12
+< 42633 9
+< 17443 13
+< 53570 2
+< 22833 7
+< 3782 0
+< 47758 5
+< 22136 10
+< 22427 15
+< 23867 6
+< 59968 4
+< 62166 11
+< 6972 14
+---
+> 6029 6
+> 20920 0
+> 8077 15
+> 42633 13
+> 17443 4
+> 53570 10
+> 22833 3
+> 3782 12
+> 47758 2
+> 22136 9
+> 22427 14
+> 23867 11
+> 59968 8
+> 62166 5
+> 6972 7
+909,944c909,944
+< 46388 3
+< 41942 8
+< 36524 12
+< 9323 9
+< 31114 13
+< 22345 15
+< 46463 3
+< 54671 2
+< 9214 7
+< 7257 0
+< 33150 5
+< 41565 10
+< 26214 6
+< 3595 4
+< 17932 11
+< 34660 14
+< 51961 1
+< 58634 8
+< 57990 12
+< 28848 9
+< 49920 13
+< 18351 15
+< 53669 3
+< 33996 2
+< 6741 7
+< 64098 0
+< 606 5
+< 27383 10
+< 63140 6
+< 32228 4
+< 63437 11
+< 29085 14
+< 65080 1
+< 38753 8
+< 16041 12
+< 9041 9
+---
+> 46388 6
+> 41942 0
+> 36524 15
+> 9323 13
+> 31114 4
+> 22345 14
+> 46463 6
+> 54671 10
+> 9214 3
+> 7257 12
+> 33150 2
+> 41565 9
+> 26214 11
+> 3595 8
+> 17932 1
+> 34660 5
+> 51961 7
+> 58634 0
+> 57990 15
+> 28848 13
+> 49920 4
+> 18351 14
+> 53669 6
+> 33996 10
+> 6741 3
+> 64098 12
+> 606 2
+> 27383 9
+> 63140 11
+> 32228 8
+> 63437 1
+> 29085 5
+> 65080 7
+> 38753 6
+> 16041 0
+> 9041 15
+946,989c946,989
+< 46388 15
+< 63650 3
+< 36636 2
+< 21947 7
+< 19833 0
+< 36464 5
+< 8541 10
+< 12712 6
+< 48955 4
+< 39206 11
+< 15578 14
+< 49205 1
+< 7731 8
+< 43046 12
+< 60498 9
+< 9237 13
+< 47706 15
+< 43973 3
+< 42008 2
+< 27460 7
+< 24999 0
+< 51933 5
+< 34070 10
+< 65155 6
+< 59955 4
+< 9277 13
+< 20420 11
+< 44860 14
+< 50992 1
+< 10583 8
+< 57751 12
+< 23195 9
+< 27227 15
+< 42816 3
+< 58219 2
+< 37606 7
+< 18426 0
+< 21238 5
+< 11983 10
+< 48394 6
+< 11036 4
+< 30557 13
+< 23453 11
+< 49847 14
+---
+> 46388 4
+> 63650 4
+> 36636 14
+> 21947 10
+> 19833 3
+> 36464 12
+> 8541 2
+> 12712 9
+> 48955 11
+> 39206 8
+> 15578 1
+> 49205 5
+> 7731 7
+> 43046 6
+> 60498 0
+> 9237 15
+> 47706 13
+> 43973 4
+> 42008 14
+> 27460 10
+> 24999 3
+> 51933 12
+> 34070 2
+> 65155 9
+> 59955 11
+> 9277 15
+> 20420 8
+> 44860 1
+> 50992 5
+> 10583 7
+> 57751 6
+> 23195 0
+> 27227 13
+> 42816 4
+> 58219 14
+> 37606 10
+> 18426 3
+> 21238 12
+> 11983 2
+> 48394 9
+> 11036 11
+> 30557 15
+> 23453 4
+> 49847 8
+991,1000c991,1000
+< 48065 8
+< 6957 12
+< 2301 9
+< 7736 15
+< 31260 3
+< 17071 2
+< 8940 7
+< 9929 0
+< 45563 5
+< 12107 10
+---
+> 48065 5
+> 6957 7
+> 2301 6
+> 7736 0
+> 31260 13
+> 17071 14
+> 8940 10
+> 9929 3
+> 45563 12
+> 12107 2
+539 55
+[01;31m[KPage Faults =[m[K 538
+[01;31m[KTLB Hits =[m[K 55
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [H[2J]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ awk -v pag=fifo '
+BEGIN{for(i=0;i<16;i++){tp[i]=-1;tf[i]=-1;tl[i]=-1}
+      for(f=0;f<128;f++){fp[f]=-1;la[f]=-1}
+      nxt=0;pf=0;hits=0;n=0}
+{ a=$1; p=int(a/256); e=-1
+  for(i=0;i<16;i++) if(tp[i]==p){e=i;break}
+  if(e>=0){f=tf[e];hits++}
+  else{
+    if(!(p in pt)){
+      if(pag=="lru" && pf>=128){v=0;for(g=1;g<128;g++) if(la[g]<la[v]) v=g}
+      else v=nxt
+      old=fp[v]
+[7m      if(old!=-1){delete pt[old][27m
+[7m        for(i=0;i<16;i++) if(tp[i]==old){tp[i]=-1;tf[i]=-1}}[27m
+[7m      pt[p]=v;fp[v]=p;nxt=(nxt+1)%128;pf++[27m
+[7m    }[27m
+[7m    f=pt[p]; e=-1[27m
+[7m    for(i=0;i<16;i++) if(tp[i]==-1){e=i;break}[27m
+[7m    if(e<0){e=0;for(i=1;i<16;i++) if(tl[i]<tl[e]) e=i}[27m
+[7m    tp[e]=p;tf[e]=f[27m
+[7m  }[27m
+[7m  tl[e]=n;la[f]=n;n++[27m
+[7m  print a, e > "/tmp/sim_tlb.txt"[27m
+[7m}[27m
+[7mEND{print pf, hits > "/tmp/sim_tot.txt"}' testes/oficiais/addresses.txt[27m
+[7m./vm testes/oficiais/addresses.txt fifo lru; echo "saida=$?"[27m
+[7mgrep '^Virtual' correct.txt | awk '{print $3, $5}' > /tmp/real_tlb.txt[27m
+[7mdiff /tmp/sim_tlb.txt /tmp/real_tlb.txt | head -5; diff -q /tmp/sim_tlb.txt /tmp/real_tlb.txt && echo TLB_IGUAL[27m
+[7mecho "sim: $(cat /tmp/sim_tot.txt)"[27m
+[7mgrep -E "Page Faults =|TLB Hits =" correct.txt[27m[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A      if(old!=-1){delete pt[old]
+        for(i=0;i<16;i++) if(tp[i]==old){tp[i]=-1;tf[i]=-1}}
+      pt[p]=v;fp[v]=p;nxt=(nxt+1)%128;pf++
+    }
+    f=pt[p]; e=-1
+    for(i=0;i<16;i++) if(tp[i]==-1){e=i;break}
+    if(e<0){e=0;for(i=1;i<16;i++) if(tl[i]<tl[e]) e=i}
+    tp[e]=p;tf[e]=f
+  }
+  tl[e]=n;la[f]=n;n++
+  print a, e > "/tmp/sim_tlb.txt"
+}
+END{print pf, hits > "/tmp/sim_tot.txt"}' testes/oficiais/addresses.txt
+./vm testes/oficiais/addresses.txt fifo lru; echo "saida=$?"
+grep '^Virtual' correct.txt | awk '{print $3, $5}' > /tmp/real_tlb.txt
+diff /tmp/sim_tlb.txt /tmp/real_tlb.txt | head -5; diff -q /tmp/sim_tlb.txt /tmp/real_tlb.txt && echo TLB_IGUAL
+echo "sim: $(cat /tmp/sim_tot.txt)"
+grep -E "Page Faults =|TLB Hits =" correct.txt
+[?2004lsaida=0
+TLB_IGUAL
+sim: 538 55
+[01;31m[KPage Faults =[m[K 538
+[01;31m[KTLB Hits =[m[K 55
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit status -sb[27m
+[7mgit diff --stat main.c[27m
+[7mgit diff main.c | head -80[27m[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git status -sb
+git diff --stat main.c
+git diff main.c | head -80
+[?2004l## [32mmain[m
+ [31mM[m main.c
+[31m??[m evidencias.log
+[31m??[m evidencias_ambiente.log
+[?1h= main.c | 42 [32m+++++++++++++++++++++++++++++++++[m[31m---------[m[m
+ 1 file changed, 33 insertions(+), 9 deletions(-)[m
+[K[?1l>diff --git a/main.c b/main.c
+index 331932b..6107ae7 100644
+--- a/main.c
++++ b/main.c
+@@ -12,6 +12,7 @@ int ultimoAcesso[NUM_FRAMES];
+ signed char memoriaFisica[NUM_FRAMES][PAGE_SIZE];
+ int paginasTLB[TLB_SIZE];
+ int framesTLB[TLB_SIZE];
++int ultimoAcessoTLB[TLB_SIZE];
+ 
+ 
+ int proximaEntradaTLB = 0;
+@@ -38,6 +39,7 @@ void criarTabela(void) {
+     for (int i = 0; i < TLB_SIZE; i++) {
+         paginasTLB[i] = -1;
+         framesTLB[i] = -1;
++        ultimoAcessoTLB[i] = -1;
+     }
+ }
+ 
+@@ -89,6 +91,23 @@ int escolherVitimaLRU(void) {
+     return vitima;
+ }
+ 
++int escolherVitimaTLB(void) {
++
++    int vitima = 0;
++
++    for (int i = 0; i < TLB_SIZE; i++) {
++        if (paginasTLB[i] == -1) {
++            return i;
++        }
++
++        if (ultimoAcessoTLB[i] < ultimoAcessoTLB[vitima]) {
++            vitima = i;
++        }
++    }
++
++    return vitima;
++}
++
+ int buscarTLB(int pagina) {
+ 
+     for (int i = 0; i < TLB_SIZE; i++) {
+@@ -100,19 +119,23 @@ int buscarTLB(int pagina) {
+     return -1;
+ }
+ 
+-int inserirTLB(int pagina, int frame) {
++int inserirTLB(int pagina, int frame, char *algoritmo) {
+ 
+     int entrada = proximaEntradaTLB;
+ 
+-    paginasTLB[entrada] = pagina;
+-    framesTLB[entrada] = frame;
+-
+-    proximaEntradaTLB++;
++    if (strcmp(algoritmo, "lru") == 0) {
++        entrada = escolherVitimaTLB();
++    } else {
++        proximaEntradaTLB++;
+ 
+-    if (proximaEntradaTLB == TLB_SIZE) {
+-        proximaEntradaTLB = 0;
++        if (proximaEntradaTLB == TLB_SIZE) {
++            proximaEntradaTLB = 0;
++        }
+     }
+ 
++    paginasTLB[entrada] = pagina;
++    framesTLB[entrada] = frame;
++
+     return entrada;
+ }
+ 
+@@ -128,7 +151,7 @@ int main(int argc, char *argv[]) {
+         return 1;
+     }
+ 
+-    if (strcmp(argv[3], "fifo") != 0) {
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit diff main.c | tail -n +80[27mgit diff main.c | tail -n +80
+[?2004l-    if (strcmp(argv[3], "fifo") != 0) {
++    if (strcmp(argv[3], "fifo") != 0 && strcmp(argv[3], "lru") != 0) {
+         fprintf(stderr, "Algoritmo da TLB invalido\n");
+         return 1;
+     }
+@@ -217,9 +240,10 @@ int main(int argc, char *argv[]) {
+             }
+ 
+             frame = tabelaPaginas[pagina];
+-            entradaTLB = inserirTLB(pagina, frame);
++            entradaTLB = inserirTLB(pagina, frame, argv[3]);
+         }
+ 
++        ultimoAcessoTLB[entradaTLB] = quantidade;
+         ultimoAcesso[frame] = quantidade;
+         int enderecoFisico = frame * PAGE_SIZE + offset;
+         int valor = memoriaFisica[frame][offset];
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit add main.c[27m
+[7mgit diff --cached --stat[27m[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git add main.c
+git diff --cached --stat
+[?2004l[?1h= main.c | 42 [32m+++++++++++++++++++++++++++++++++[m[31m---------[m[m
+ 1 file changed, 33 insertions(+), 9 deletions(-)[m
+[K[?1l>[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit commit -m "Adiciona TLB LRU e confere com simulacao"[27m
+[7mgit --no-pager show --stat HEAD[27m[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git commit -m "Adiciona TLB LRU e confere com simulacao"
+git --no-pager show --stat HEAD
+[?2004l[main 87180ea] Adiciona TLB LRU e confere com simulacao
+ 1 file changed, 33 insertions(+), 9 deletions(-)
+[33mcommit 87180eaa51e3bc9b63bca04b2015043588bb07c3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 19:16:47 2026 -0300
+
+    Adiciona TLB LRU e confere com simulacao
+
+ main.c | 42 [32m+++++++++++++++++++++++++++++++++[m[31m---------[m
+ 1 file changed, 33 insertions(+), 9 deletions(-)
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [H[2J]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ make clean && make
+echo "== lru fifo"
+./vm testes/oficiais/addresses.txt lru fifo; echo "saida=$?"
+diff correct.txt testes/oficiais/correct.txt && echo IGUAL
+grep -E "Page Faults =|TLB Hits =" correct.txt
+echo "== fifo fifo"
+./vm testes/oficiais/addresses.txt fifo fifo; echo "saida=$?"
+grep -E "Page Faults =|TLB Hits =" correct.txt
+for comb in "lru lru" "fifo lru"; do
+  pag=${comb% *}; tlb=${comb#* }
+  echo "== $pag $tlb"
+  awk -v pag="$pag" '
+  BEGIN{for(i=0;i<16;i++){tp[i]=-1;tf[i]=-1;tl[i]=-1}
+        for(f=0;f<128;f++){fp[f]=-1;la[f]=-1}
+        nxt=0;pf=0;hits=0;n=0}
+  { a=$1; p=int(a/256); e=-1
+    for(i=0;i<16;i++) if(tp[i]==p){e=i;break}
+    if(e>=0){f=tf[e];hits++}
+    else{
+      if(!(p in pt)){
+        if(pag=="lru" && pf>=128){v=0;for(g=1;g<128;g++) if(la[g]<la[v]) v=g}
+        else v=nxt
+        old=fp[v]
+        if(old!=-1){delete pt[old]
+[7m          for(i=0;i<16;i++) if(tp[i]==old){tp[i]=-1;tf[i]=-1}}[27m
+[7m        pt[p]=v;fp[v]=p;nxt=(nxt+1)%128;pf++[27m
+[7m      }[27m
+[7m      f=pt[p]; e=-1[27m
+[7m      for(i=0;i<16;i++) if(tp[i]==-1){e=i;break}[27m
+[7m      if(e<0){e=0;for(i=1;i<16;i++) if(tl[i]<tl[e]) e=i}[27m
+[7m      tp[e]=p;tf[e]=f[27m
+[7m    }[27m
+[7m    tl[e]=n;la[f]=n;n++[27m
+[7m    print a, e > "/tmp/sim_tlb.txt"[27m
+[7m  }[27m
+[7m  END{print pf, hits > "/tmp/sim_tot.txt"}' testes/oficiais/addresses.txt[27m
+[7m  ./vm testes/oficiais/addresses.txt $pag $tlb; echo "saida=$?"[27m
+[7m  grep '^Virtual' correct.txt | awk '{print $3, $5}' > /tmp/real_tlb.txt[27m
+[7m  diff /tmp/sim_tlb.txt /tmp/real_tlb.txt | head -5; diff -q /tmp/sim_tlb.txt /tmp/real_tlb.txt && echo TLB_IGUAL[27m
+[7m  echo "sim: $(cat /tmp/sim_tot.txt)"[27m
+[7m  grep -E "Page Faults =|TLB Hits =" correct.txt[27m
+[7mdone[27m[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A          for(i=0;i<16;i++) if(tp[i]==old){tp[i]=-1;tf[i]=-1}}
+        pt[p]=v;fp[v]=p;nxt=(nxt+1)%128;pf++
+      }
+      f=pt[p]; e=-1
+      for(i=0;i<16;i++) if(tp[i]==-1){e=i;break}
+      if(e<0){e=0;for(i=1;i<16;i++) if(tl[i]<tl[e]) e=i}
+      tp[e]=p;tf[e]=f
+    }
+    tl[e]=n;la[f]=n;n++
+    print a, e > "/tmp/sim_tlb.txt"
+  }
+  END{print pf, hits > "/tmp/sim_tot.txt"}' testes/oficiais/addresses.txt
+  ./vm testes/oficiais/addresses.txt $pag $tlb; echo "saida=$?"
+  grep '^Virtual' correct.txt | awk '{print $3, $5}' > /tmp/real_tlb.txt
+  diff /tmp/sim_tlb.txt /tmp/real_tlb.txt | head -5; diff -q /tmp/sim_tlb.txt /tmp/real_tlb.txt && echo TLB_IGUAL
+  echo "sim: $(cat /tmp/sim_tot.txt)"
+  grep -E "Page Faults =|TLB Hits =" correct.txt
+done
+[?2004lrm -f vm
+gcc -pthread -Wall -Wextra -std=c11 main.c -o vm
+== lru fifo
+saida=0
+IGUAL
+[01;31m[KPage Faults =[m[K 539
+[01;31m[KTLB Hits =[m[K 54
+== fifo fifo
+saida=0
+[01;31m[KPage Faults =[m[K 538
+[01;31m[KTLB Hits =[m[K 54
+== lru lru
+saida=0
+TLB_IGUAL
+sim: 539 55
+[01;31m[KPage Faults =[m[K 539
+[01;31m[KTLB Hits =[m[K 55
+== fifo lru
+saida=0
+TLB_IGUAL
+sim: 538 55
+[01;31m[KPage Faults =[m[K 538
+[01;31m[KTLB Hits =[m[K 55
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit status -sb[27m
+[7mgit add main.c[27m
+[7mgit diff --cached --stat[27m
+[7mgit commit -m "Busca na TLB com uma thread por entrada"[27m
+[7mgit --no-pager show --stat HEAD[27m[A[A[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git status -sb
+git add main.c
+git diff --cached --stat
+git commit -m "Busca na TLB com uma thread por entrada"
+git --no-pager show --stat HEAD
+[?2004l## [32mmain[m
+ [31mM[m main.c
+[31m??[m evidencias.log
+[31m??[m evidencias_ambiente.log
+[?1h= main.c | 59 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m[31m-[m[m
+ 1 file changed, 58 insertions(+), 1 deletion(-)[m
+[K[?1l>[main 647898b] Busca na TLB com uma thread por entrada
+ 1 file changed, 58 insertions(+), 1 deletion(-)
+[33mcommit 647898bb33c64f4cf43ac5ccf8d4626e0012ea04[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 19:40:16 2026 -0300
+
+    Busca na TLB com uma thread por entrada
+
+ main.c | 59 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m[31m-[m
+ 1 file changed, 58 insertions(+), 1 deletion(-)
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mmake clean && make[27m
+[7m./vm testes/oficiais/addresses.txt lru fifo[27m
+[7mdiff correct.txt testes/oficiais/correct.txt && echo IGUAL[27m[A[Amake clean && make
+./vm testes/oficiais/addresses.txt lru fifo
+diff correct.txt testes/oficiais/correct.txt && echo IGUAL
+[?2004lrm -f vm
+gcc -pthread -Wall -Wextra -std=c11 main.c -o vm
+IGUAL
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [H[2J]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mA=testes/oficiais/addresses.txt[27m
+[7mt() { echo "-- $1"; shift; ./vm "$@"; echo "saida=$?"; }[27m
+[7mt "sem 3o argumento" $A lru[27m
+[7mt "pagina invalida" $A xyz fifo[27m
+[7mt "tlb invalida" $A lru xyz[27m
+[7mt "arquivo inexistente" /tmp/naoexiste.txt lru fifo[27m
+[7m: > /tmp/vazio.txt;                        t "arquivo vazio" /tmp/vazio.txt lru fifo[27m
+[7mprintf 'abc\n' > /tmp/texto.txt;           t "texto" /tmp/texto.txt lru fifo[27m
+[7mprintf '16916\n-5\n' > /tmp/neg.txt;       t "negativo" /tmp/neg.txt lru fifo[27m
+[7mprintf '65536\n' > /tmp/alto.txt;          t "65536" /tmp/alto.txt lru fifo[27m
+[7mprintf '99999999999999999999\n' > /tmp/enorme.txt; t "enorme" /tmp/enorme.txt lru fifo[27m
+[7mprintf '123abc\n' > /tmp/lixo.txt;         t "123abc" /tmp/lixo.txt lru fifo[27m
+[7mprintf '12 34\n' > /tmp/duas.txt;          t "duas colunas" /tmp/duas.txt lru fifo[27m
+[7mprintf '16916\n\n123\n' > /tmp/branco.txt; t "linha em branco" /tmp/branco.txt lru fifo[27m
+[7mhead -c 300 /dev/zero | tr '\0' '1' > /tmp/longa.txt; t "linha longa" /tmp/longa.txt lru fifo[27m
+[7mprintf '0\n65535\n' > /tmp/limites.txt;    t "limites 0 e 65535" /tmp/limites.txt lru fifo[27m
+[7mprintf '16916\r\n123\r\n' > /tmp/crlf.txt; t "CRLF" /tmp/crlf.txt lru fifo[27m
+[7mprintf '16916\n123' > /tmp/semfim.txt;     t "sem quebra final" /tmp/semfim.txt lru fifo[27m
+[7mls correct.txt.tmp 2>&1[27m[H[2J]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ A=testes/oficiais/addresses.txt
+t() { echo "-- $1"; shift; ./vm "$@"; echo "saida=$?"; }
+t "sem 3o argumento" $A lru
+t "pagina invalida" $A xyz fifo
+t "tlb invalida" $A lru xyz
+t "arquivo inexistente" /tmp/naoexiste.txt lru fifo
+: > /tmp/vazio.txt;                        t "arquivo vazio" /tmp/vazio.txt lru fifo
+printf 'abc\n' > /tmp/texto.txt;           t "texto" /tmp/texto.txt lru fifo
+printf '16916\n-5\n' > /tmp/neg.txt;       t "negativo" /tmp/neg.txt lru fifo
+printf '65536\n' > /tmp/alto.txt;          t "65536" /tmp/alto.txt lru fifo
+printf '99999999999999999999\n' > /tmp/enorme.txt; t "enorme" /tmp/enorme.txt lru fifo
+printf '123abc\n' > /tmp/lixo.txt;         t "123abc" /tmp/lixo.txt lru fifo
+printf '12 34\n' > /tmp/duas.txt;          t "duas colunas" /tmp/duas.txt lru fifo
+printf '16916\n\n123\n' > /tmp/branco.txt; t "linha em branco" /tmp/branco.txt lru fifo
+head -c 300 /dev/zero | tr '\0' '1' > /tmp/longa.txt; t "linha longa" /tmp/longa.txt lru fifo
+printf '0\n65535\n' > /tmp/limites.txt;    t "limites 0 e 65535" /tmp/limites.txt lru fifo
+printf '16916\r\n123\r\n' > /tmp/crlf.txt; t "CRLF" /tmp/crlf.txt lru fifo
+printf '16916\n123' > /tmp/semfim.txt;     t "sem quebra final" /tmp/semfim.txt lru fifo
+ls correct.txt.tmp 2>&1
+[?2004l-- sem 3o argumento
+Uso: ./vm <arquivo> <fifo|lru> <fifo|lru>
+saida=1
+-- pagina invalida
+Algoritmo invalido
+saida=1
+-- tlb invalida
+Algoritmo da TLB invalido
+saida=1
+-- arquivo inexistente
+Erro ao abrir arquivo
+saida=1
+-- arquivo vazio
+Arquivo invalido
+saida=1
+-- texto
+Arquivo invalido
+saida=1
+-- negativo
+Endereco invalido
+saida=1
+-- 65536
+Endereco invalido
+saida=1
+-- enorme
+Endereco invalido
+saida=1
+-- 123abc
+Arquivo invalido
+saida=1
+-- duas colunas
+Arquivo invalido
+saida=1
+-- linha em branco
+Arquivo invalido
+saida=1
+-- linha longa
+Arquivo invalido
+saida=1
+-- limites 0 e 65535
+saida=0
+-- CRLF
+saida=0
+-- sem quebra final
+saida=0
+ls: cannot access 'correct.txt.tmp': No such file or directory
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mmkdir -p /tmp/t1 /tmp/t2[27m
+[7mcp testes/oficiais/BACKING_STORE.bin /tmp/t1/[27m
+[7m(cd /tmp/t1 && ~/dev/vm/vm ~/dev/vm/testes/oficiais/addresses.txt lru fifo; echo "saida=$?"; diff correct.txt ~/dev/vm/testes/oficiais/correct.txt && echo IGUAL)[27m
+[7m(cd /tmp/t2 && ~/dev/vm/vm ~/dev/vm/testes/oficiais/addresses.txt lru fifo; echo "saida=$?"; ls correct.txt.tmp 2>&1)[27m[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmkdir -p /tmp/t1 /tmp/t2
+cp testes/oficiais/BACKING_STORE.bin /tmp/t1/
+(cd /tmp/t1 && ~/dev/vm/vm ~/dev/vm/testes/oficiais/addresses.txt lru fifo; echo "saida=$?"; diff correct.txt ~/dev/vm/testes/oficiais/correct.txt && echo IGUAL)
+(cd /tmp/t2 && ~/dev/vm/vm ~/dev/vm/testes/oficiais/addresses.txt lru fifo; echo "saida=$?"; ls correct.txt.tmp 2>&1)
+[?2004lsaida=0
+IGUAL
+Erro ao abrir disco
+saida=1
+ls: cannot access 'correct.txt.tmp': No such file or directory
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mmkdir -p /tmp/t3 /tmp/t4[27m
+[7mhead -c 1000 testes/oficiais/BACKING_STORE.bin > /tmp/t3/BACKING_STORE.bin[27m
+[7mhead -c 1000 testes/oficiais/BACKING_STORE.bin > /tmp/t4/BACKING_STORE.bin[27m
+[7mln -sfn ~/dev/vm/testes /tmp/t4/testes[27m
+[7mecho "== t3: disco truncado, sem outro disco"[27m
+[7m(cd /tmp/t3 && ~/dev/vm/vm ~/dev/vm/testes/oficiais/addresses.txt lru fifo; echo "saida=$?"; ls correct.txt* 2>&1)[27m
+[7mecho "== t4: truncado no diretorio atual, completo em testes/oficiais/"[27m
+[7m(cd /tmp/t4 && ~/dev/vm/vm ~/dev/vm/testes/oficiais/addresses.txt lru fifo; echo "saida=$?"; ls correct.txt* 2>&1)[27m[A[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmkdir -p /tmp/t3 /tmp/t4
+head -c 1000 testes/oficiais/BACKING_STORE.bin > /tmp/t3/BACKING_STORE.bin
+head -c 1000 testes/oficiais/BACKING_STORE.bin > /tmp/t4/BACKING_STORE.bin
+ln -sfn ~/dev/vm/testes /tmp/t4/testes
+echo "== t3: disco truncado, sem outro disco"
+(cd /tmp/t3 && ~/dev/vm/vm ~/dev/vm/testes/oficiais/addresses.txt lru fifo; echo "saida=$?"; ls correct.txt* 2>&1)
+echo "== t4: truncado no diretorio atual, completo em testes/oficiais/"
+(cd /tmp/t4 && ~/dev/vm/vm ~/dev/vm/testes/oficiais/addresses.txt lru fifo; echo "saida=$?"; ls correct.txt* 2>&1)
+[?2004l== t3: disco truncado, sem outro disco
+Erro ao carregar pagina
+saida=1
+ls: cannot access 'correct.txt*': No such file or directory
+== t4: truncado no diretorio atual, completo em testes/oficiais/
+Erro ao carregar pagina
+saida=1
+ls: cannot access 'correct.txt*': No such file or directory
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit status -sb[27m
+[7mgit add main.c[27m
+[7mgit diff --cached --stat[27m
+[7mgit commit -m "Melhora validacao de enderecos e caminho do backing store"[27m
+[7mgit --no-pager show --stat HEAD[27m[A[A[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git status -sb
+git add main.c
+git diff --cached --stat
+git commit -m "Melhora validacao de enderecos e caminho do backing store"
+git --no-pager show --stat HEAD
+[?2004l## [32mmain[m
+ [31mM[m main.c
+[31m??[m evidencias.log
+[31m??[m evidencias_ambiente.log
+[?1h= main.c | 64 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++[m[31m-------------[m[m
+ 1 file changed, 51 insertions(+), 13 deletions(-)[m
+[K[?1l>[main 9784dfd] Melhora validacao de enderecos e caminho do backing store
+ 1 file changed, 51 insertions(+), 13 deletions(-)
+[33mcommit 9784dfdee20a51cfa346c3f28145cde5bb27dbe8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 20:02:46 2026 -0300
+
+    Melhora validacao de enderecos e caminho do backing store
+
+ main.c | 64 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++[m[31m-------------[m
+ 1 file changed, 51 insertions(+), 13 deletions(-)
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ date
+[?2004lTue Nov 24 20:02:53 -03 2026
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mcd ~/dev/vm[27m
+[7mwc -l README.md[27m
+[7msha256sum README.md[27m
+[7mgit status -sb[27m
+[7mgit diff --stat README.md[27m[A[A[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ cd ~/dev/vm
+wc -l README.md
+sha256sum README.md
+git status -sb
+git diff --stat README.md
+[?2004l108 README.md
+ff9fab3d5bdcc204dca486cce17a8f5bc9888c28e236eea1f312b1bfdb761b4f  README.md
+## [32mmain[m
+ [31mM[m README.md
+[31m??[m evidencias.log
+[31m??[m evidencias_ambiente.log
+[?1h= README.md | 60 [32m+++++++++++++++++++++++++++++++++++++++[m[31m---------------------[m[m
+ 1 file changed, 39 insertions(+), 21 deletions(-)[m
+[K[?1l>[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mgit add README.md[27m
+[7mgit diff --cached --stat[27m
+[7mgit commit -m "Atualiza README com TLB LRU, threads e tratamento de erros"[27m
+[7mgit --no-pager show --stat HEAD[27m
+[7mdate[27m[A[A[A[A]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ git add README.md
+git diff --cached --stat
+git commit -m "Atualiza README com TLB LRU, threads e tratamento de erros"
+git --no-pager show --stat HEAD
+date
+[?2004l[?1h= README.md | 60 [32m+++++++++++++++++++++++++++++++++++++++[m[31m---------------------[m[m
+ 1 file changed, 39 insertions(+), 21 deletions(-)[m
+[K[?1l>[main a76ae67] Atualiza README com TLB LRU, threads e tratamento de erros
+ 1 file changed, 39 insertions(+), 21 deletions(-)
+[33mcommit a76ae67ef0592c5eb477adc539d0d0e621bf8330[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: RafaCarrilho <rac4@cesar.school>
+Date:   Tue Nov 24 20:16:43 2026 -0300
+
+    Atualiza README com TLB LRU, threads e tratamento de erros
+
+ README.md | 60 [32m+++++++++++++++++++++++++++++++++++++++[m[31m---------------------[m
+ 1 file changed, 39 insertions(+), 21 deletions(-)
+Tue Nov 24 20:16:43 -03 2026
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [7mcd ~/dev/vm[27m
+[7mpgrep -a script[27m
+[7mdate; pwd; git --no-pager log --oneline -3; git status -sb[27m
+[7mmake clean && make[27m
+[7mfor alg in "lru fifo" "fifo fifo" "lru lru" "fifo lru"; do ./vm testes/oficiais/addresses.txt $alg; echo "$alg saida=$?"; tail -5 correct.txt | grep -E "Page Faults|TLB Hits"; done[27m
+[7m./vm testes/oficiais/addresses.txt lru fifo && diff correct.txt testes/oficiais/correct.txt && echo IGUAL[27m[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd ~/dev/vm
+pgrep -a script
+date; pwd; git --no-pager log --oneline -3; git status -sb
+make clean && make
+for alg in "lru fifo" "fifo fifo" "lru lru" "fifo lru"; do ./vm testes/oficiais/addresses.txt $alg; echo "$alg saida=$?"; tail -5 correct.txt | grep -E "Page Faults|TLB Hits"; done
+./vm testes/oficiais/addresses.txt lru fifo && diff correct.txt testes/oficiais/correct.txt && echo IGUAL
+[?2004l23600 script -af evidencias.log
+Tue Nov 24 20:18:25 -03 2026
+/home/racarrilho/dev/vm
+[33ma76ae67[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Atualiza README com TLB LRU, threads e tratamento de erros
+[33m9784dfd[m Melhora validacao de enderecos e caminho do backing store
+[33m647898b[m Busca na TLB com uma thread por entrada
+## [32mmain[m
+[31m??[m evidencias.log
+[31m??[m evidencias_ambiente.log
+rm -f vm
+gcc -pthread -Wall -Wextra -std=c11 main.c -o vm
+lru fifo saida=0
+[01;31m[KPage Faults[m[K = 539
+[01;31m[KTLB Hits[m[K = 54
+fifo fifo saida=0
+[01;31m[KPage Faults[m[K = 538
+[01;31m[KTLB Hits[m[K = 54
+lru lru saida=0
+[01;31m[KPage Faults[m[K = 539
+[01;31m[KTLB Hits[m[K = 55
+fifo lru saida=0
+[01;31m[KPage Faults[m[K = 538
+[01;31m[KTLB Hits[m[K = 55
+IGUAL
+[?2004h]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ [K]0;racarrilho@DESKTOP-794TA68: ~/dev/vm[01;32mracarrilho@DESKTOP-794TA68[00m:[01;34m~/dev/vm[00m$ exit
+[?2004lexit
+
+Script done on 2026-11-24 21:19:39-03:00 [COMMAND_EXIT_CODE="0"]
