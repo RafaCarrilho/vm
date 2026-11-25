@@ -256,10 +256,20 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    FILE *saida = fopen("correct.txt", "w");
+
+    if (saida == NULL) {
+        fprintf(stderr, "Erro ao criar arquivo de saida\n");
+        fclose(arquivo);
+        fclose(disco);
+        return 1;
+    }
+
     int endereco;
     int final;
     int quantidade = 0;
     int pageFaults = 0;
+    int tlbHits = 0;
 
 
     criarTabela();
@@ -275,12 +285,14 @@ int main(int argc, char *argv[]) {
             fprintf(stderr, "Erro ao criar threads\n");
             fclose(arquivo);
             fclose(disco);
+            fclose(saida);
             return 1;
         }
 
         if (entradaTLB != -1) {
 
             frame = framesTLB[entradaTLB];
+            tlbHits++;
 
         } else {
 
@@ -298,6 +310,7 @@ int main(int argc, char *argv[]) {
                     fprintf(stderr, "Erro ao carregar pagina\n");
                     fclose(arquivo);
                     fclose(disco);
+                    fclose(saida);
                     return 1;
                 }
 
@@ -320,6 +333,8 @@ int main(int argc, char *argv[]) {
 
         printf("Virtual address: %d TLB: %d Physical address: %d Value: %d\n",
             endereco, entradaTLB, enderecoFisico, valor);
+        fprintf(saida, "Virtual address: %d TLB: %d Physical address: %d Value: %d\n",
+            endereco, entradaTLB, enderecoFisico, valor);
 
         quantidade++;
     }
@@ -332,13 +347,29 @@ int main(int argc, char *argv[]) {
         }
         fclose(arquivo);
         fclose(disco);
+        fclose(saida);
         return 1;
     }
+
+    double pageFaultRate = (double) pageFaults / quantidade;
+    double tlbHitRate = (double) tlbHits / quantidade;
+
+    fprintf(saida, "Number of Translated Addresses = %d\n", quantidade);
+    fprintf(saida, "Page Faults = %d\n", pageFaults);
+    fprintf(saida, "Page Fault Rate = %.3f\n", pageFaultRate);
+    fprintf(saida, "TLB Hits = %d\n", tlbHits);
+    fprintf(saida, "TLB Hit Rate = %.3f\n", tlbHitRate);
 
     fclose(arquivo);
     fclose(disco);
 
-    if (fflush(stdout) != 0 || ferror(stdout)) {
+    int erroSaida = ferror(saida);
+
+    if (fclose(saida) != 0) {
+        erroSaida = 1;
+    }
+
+    if (fflush(stdout) != 0 || ferror(stdout) || erroSaida != 0) {
         fprintf(stderr, "Erro ao escrever saida\n");
         return 1;
     }
